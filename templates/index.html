@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +10,10 @@
 </head>
 <body>
     <h1>TELA INDEX</h1>
+
+    <p><a href="{% url 'login' %}">Login</a></p>
+
+    <p><a href="{% url 'cadastro' %}">Cadastro</a></p>
+    
 </body>
 </html>
