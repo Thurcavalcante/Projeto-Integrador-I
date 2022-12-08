@@ -125,3 +125,13 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/login/' #Para informar ao Django a URL que contém o template com o formulário de aiutenticação, criar a variável LOGIN_URL em settings.py:
+
+LOGIN_REDIRECT_URL = 'painel' #É necessário informar ao projeto qual será a URL acessada após a autenticação - Para onde o Usuario sera direcionado apos realizar o login
+
+LOGOUT_REDIRECT_URL = 'home' #Para onde o usuario sera direcionado após Desconecta-se.
+
+AUTH_USER_MODEL = 'core.Usuario'
+
+AUTH_PASSWORD_VALIDATORS = [] #retirando a validação de senha

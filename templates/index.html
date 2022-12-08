@@ -9,11 +9,16 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>TELA INDEX</h1>
+    <h1>TELA INDEX/ HOME </h1>
 
+    {% if not user.is_authenticated %} <!--Se o usuario não estiver autenticado, exiba:-->
     <p><a href="{% url 'login' %}">Login</a></p>
+    <p><a href="{% url 'registro' %}">Cadastro</a></p>
+    {% endif %}
 
-    <p><a href="{% url 'cadastro' %}">Cadastro</a></p>
-    
+
+    {% if user.is_authenticated %}  <!--Se o usuário não estiver autenticado, o link para Perfil no template index não deverá aparecer. Para isso, basta acessar o atributo is_authenticated do usuário autenticado:-->
+    <p><a href="{% url 'painel' %}">Painel</a></p>
+    {% endif %}
 </body>
 </html>

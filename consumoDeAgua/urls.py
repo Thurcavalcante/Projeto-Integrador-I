@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import index, cadastro, login, perfil
+from core.views import home, painel, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index, name="index"),
-    path('cadastro/', cadastro, name="cadastro"),
-    path('login/', login, name="login"),
-    path('perfil/', perfil, name="perfil"),
+    path('', home, name='home'),
+    #path('cadastro/', cadastro, name='cadastro'),
+    path('login/', autenticacao, name='login'), 
+    path('logout/', desconectar, name='logout'),
+    path('painel/', painel, name='painel'),
+    path('cadastro_manual/', cadastro_manual, name='cadastro_manual'),
+    path('pagina_usuarios/', pagina_usuarios, name='pagina_usuarios'), 
+    path('registro/', registro, name='registro'),
+    #path('dados/<int:id>/', dados, name='dados'), #roda dados, recebendo o parâmetro id do usuário.
 ]
+
 
