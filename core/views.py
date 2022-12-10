@@ -56,8 +56,8 @@ def cadastro_manual(request):
         idade=30,
         is_superuser=False)
         
-   # permission = Permission.objects.get(codename='permissao_adm_1') #adicionando ssds a permissao: permissao_adm_1, a este usuario == Podemos criar novos usuarios que não sejam administradores e não damos essas permissões a ele
-    #user.user_permissions.add(permission)
+     #permission = Permission.objects.get(codename='permissao_adm_1') #adicionando ssds a permissao: permissao_adm_1, a este usuario == Podemos criar novos usuarios que não sejam administradores e não damos essas permissões a ele
+     #user.user_permissions.add(permission)
     permission1 = Permission.objects.get(codename='permissao_adm_1')
     permission2 = Permission.objects.get(codename='permissao_adm_2')
     user.user_permissions.add(permission1, permission2)
@@ -85,7 +85,7 @@ def registro(request):
 
 
 #MEUS DADOS - a função dados que exibirá os dados do usuário em um formulário (primeiro acesso), e também poderá atualizar os dados (caso ele faça alguma alteração e salve):
-'''''''''
+
 @login_required
 def dados(request, id):
     user = User.objects.get(pk=id)
@@ -97,4 +97,3 @@ def dados(request, id):
         'form': form
     }    
     return render(request, 'registro.html', contexto)
-'''''''''
