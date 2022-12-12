@@ -21,7 +21,10 @@ def home(request):
 
 @login_required #Para que somente usuários autenticados acessem o template perfil, em views adicionar a anotação @login_required
 def painel(request):
-    return render(request, 'painel.html')      
+    return render(request, 'painel.html') 
+
+def painel2(request):
+    return render(request, 'painel2.html')      
 
 def autenticacao(request):
     '''
