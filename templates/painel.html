@@ -13,6 +13,8 @@
 
    <p>Olá {{ user.username }}</p>
    <p>E-mail: {{ user.email }}</p>
+
+   <p><a href="{% url 'dados' user.id %}">Dados Pessoais</a></p>
    
    {% if perms.core.permissao_adm_2 %}
        <p>Texto somente com Permissão 2</p>
