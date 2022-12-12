@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Repositorios_Git\Projeto-Integrador-I\virtual"
+VIRTUAL_ENV="C:\Projeto-Integrador-I\virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

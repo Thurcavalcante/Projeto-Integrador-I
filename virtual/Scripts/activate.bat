@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Repositorios_Git\Projeto-Integrador-I\virtual
+set VIRTUAL_ENV=C:\Projeto-Integrador-I\virtual
 
 if not defined PROMPT set PROMPT=$P$G
 
