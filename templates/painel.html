@@ -9,13 +9,12 @@
     <title>Perfil</title>
 </head>
 <body>
-   <h1>TELA DE PAINEL</h1>
+   <h1>TELA DE PAINEL -  BEM-VINDO!</h1>
 
    <p>Olá {{ user.username }}</p>
    <p>E-mail: {{ user.email }}</p>
 
 
-   
    {% if perms.core.permissao_adm_2 %}
        <p>Texto somente com Permissão 2</p>
     {% endif %}
