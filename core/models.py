@@ -18,12 +18,12 @@ class Usuario(AbstractUser):# Vai conter no BD, uma sequecia de colunas padrão 
             ("permissao_adm_2", "podera visualizar o privado do painel.html")
         ]
 
-class Alerta(models.Model): #Tabela Produtos
-     m3 = models.IntegerField('Metros_c') #Colunas4
+class Alerta(models.Model): #Tabela Alerta
+     m3 = models.IntegerField('Metros_c') 
      email = models.CharField('Email', max_length=100)
      descricao = models.CharField('Descricao', max_length=200)    
 
 class Consumo(models.Model): #Tabela Consumo
-     h_inicial = models.CharField('H_Inicial', max_length=5) #Colunas4
+     h_inicial = models.CharField('H_Inicial', max_length=5) #Colunas
      h_final = models.CharField('H_Final', max_length=5)
-     dias = models.IntegerField('Dias') 
+     dias = models.IntegerField('Dias')     

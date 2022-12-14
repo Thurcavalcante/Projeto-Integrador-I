@@ -91,7 +91,7 @@ def registro(request):
 
 @login_required
 def dados(request, id):
-    user = User.objects.get(pk=id)
+    user = Usuario.objects.get(pk=id)
     form = UsuarioForm(request.POST or None, isinstance=user)
     if form.is_valid():
         form.save()   
@@ -100,6 +100,8 @@ def dados(request, id):
         'form': form
     }    
     return render(request, 'registro.html', contexto)
+
+
 
 #Alerta
 @login_required 
