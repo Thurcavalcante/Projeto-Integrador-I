@@ -5,9 +5,9 @@ from django.contrib.auth import logout #função responsável pelo logout
 from django.contrib.auth.decorators import permission_required #Definindo que o acesso à View só será feito por usuários que tiverem a permissão permissao_adm_1 definida:
 from django.contrib.auth.models import Permission #Primeiro passo: Importar o objeto Permission em Views:
 from django.contrib.auth.forms import UserCreationForm #Registro: UserCreationForm: é um ModelForm que já vem implementado no Django, com 3 campos para o registro de usuário: username, password1 e password2.
-from .forms import UsuarioForm #importando a class criado em forms.py 
+from .forms import UsuarioForm, AlertaForm, ConsumoForm #importando a class criado em forms.py 
 from django.contrib.auth.models import User
-from .models import Usuario
+from .models import Usuario, Alerta, Consumo
 # Create your views here.
 
 def home(request):
@@ -100,3 +100,95 @@ def dados(request, id):
         'form': form
     }    
     return render(request, 'registro.html', contexto)
+
+#Alerta
+@login_required 
+def listar_alerta(request):       
+    alerta = Alerta.objects.all()
+    contexto = {
+        'todos_alerta': alerta
+    }
+    return render (request, 'alerta.html', contexto)
+
+
+@login_required 
+def cadastrar_alerta(request):     
+    form = AlertaForm(request.POST or None)
+
+    if form.is_valid(): #Se os dados forem validos, salve o formulario..
+        form.save()
+        return redirect('listar_alerta') # e redirecione o usuario para pagina de listagem
+
+    contexto = {
+        'form_alerta': form
+    }
+    return render(request, 'alerta_cadastrar.html', contexto)
+
+
+@login_required 
+def editar_alerta(request, id): #EDITAR dados do ALERTA
+    alerta = Alerta.objects.get(pk=id)
+
+    form = AlertaForm(request.POST or None, instance=alerta)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_alerta')
+
+    contexto = {
+        'form_alerta': form
+    }    
+
+    return render (request, 'alerta_cadastrar.html', contexto)
+
+@login_required 
+def remover_alerta(request, id): 
+    alerta = Alerta.objects.get(pk=id)
+    alerta.delete()
+    return redirect('listar_alerta')
+
+
+#Consumo
+@login_required 
+def listar_consumo(request):       
+    consumo = Consumo.objects.all()
+    contexto = {
+        'todos_consumo': consumo
+    }
+    return render (request, 'consumo.html', contexto)
+
+
+@login_required 
+def cadastrar_consumo(request):     
+    form = ConsumoForm(request.POST or None)
+
+    if form.is_valid(): #Se os dados forem validos, salve o formulario..
+        form.save()
+        return redirect('listar_consumo') # e redirecione o usuario para pagina de listagem
+
+    contexto = {
+        'form_consumo': form
+    }
+    return render(request, 'consumo_cadastrar.html', contexto)
+
+@login_required 
+def editar_consumo(request, id): #EDITAR dados do CONSUMO
+    consumo = Consumo.objects.get(pk=id)
+
+    form = ConsumoForm(request.POST or None, instance=consumo)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_consumo')
+
+    contexto = {
+        'form_consumo': form
+    }    
+
+    return render (request, 'consumo_cadastrar.html', contexto)
+
+@login_required 
+def remover_consumo(request, id): 
+    consumo = Consumo.objects.get(pk=id)
+    consumo.delete()
+    return redirect('listar_consumo')  

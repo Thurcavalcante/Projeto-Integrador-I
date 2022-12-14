@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style type="text/css">
+        .center
+        {
+   text-align: right;
+        }
+        .cent
+        {
+   text-align: center;
+        }
+        .cor
+        {
+   color: aliceblue;
+        }
+     </style>
+</head>
+<body> 
+ 
+        
+    {% for consumo in todos_consumo %} 
+    
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Horário Inicial</th>
+                <th scope="col">Horário Final</th>
+                <th scope="col">Dias de consumo</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <td>{{consumo.h_inicial}}</td>
+                <td>{{consumo.h_final}}</td>
+                <td>{{consumo.dias}}</td>
+                <td><a href="{% url 'editar_consumo' consumo.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
+                <td><a href="{% url 'remover_consumo' consumo.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><a href="{% url 'painel' %}">Voltar para o painel</a></p>
+        
+        {% empty %}
+    
+        <div class="alert alert-danger" role="alert">
+          <p class="cent">Nenhum "consumo" cadastrado!</p> 
+        </div>
+
+        <p><a href="{% url 'painel' %}">Voltar para o painel</a></p>
+
+        {% endfor %}
+        <p class="center"><a href="{% url 'cadastrar_consumo' %}"><button type="button" class="btn btn-success">Cadastrar Consumo</button></a></p>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    
+</body>
+</html>

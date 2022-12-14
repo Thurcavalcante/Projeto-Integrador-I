@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import home, painel, painel2, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
+from core.views import listar_alerta, cadastrar_alerta, editar_alerta, remover_alerta
+from core.views import listar_consumo, cadastrar_consumo, editar_consumo, remover_consumo
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -30,6 +32,16 @@ urlpatterns = [
     path('pagina_usuarios/', pagina_usuarios, name='pagina_usuarios'), 
     path('registro/', registro, name='registro'),
     path('dados/<int:id>/', dados, name='dados'), #roda dados, recebendo o parâmetro id do usuário.
+
+    path('alerta/', listar_alerta, name='listar_alerta'),#Aletta
+    path('alerta_cadastrar/', cadastrar_alerta, name='cadastrar_alerta'),
+    path('alerta_editar/<int:id>/', editar_alerta, name='editar_alerta'),
+    path('alerta_remover/<int:id>/', remover_alerta, name='remover_alerta'),
+
+    path('consumo/', listar_consumo, name='listar_consumo'),#Consumo
+    path('consumo_cadastrar/', cadastrar_consumo, name='cadastrar_consumo'),
+    path('consumo_editar/<int:id>/', editar_consumo, name='editar_consumo'),
+    path('consumo_remover/<int:id>/', remover_consumo, name='remover_consumo'),
 ]
 
 

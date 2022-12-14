@@ -1,6 +1,8 @@
 from django.db import models
-
+from distutils.command.upload import upload
 from django.contrib.auth.models import AbstractUser #Padrão
+
+
 
 class Usuario(AbstractUser):# Vai conter no BD, uma sequecia de colunas padrão + os campos criados abaixo.
     nome = models.CharField('Nome', max_length=100)
@@ -15,3 +17,13 @@ class Usuario(AbstractUser):# Vai conter no BD, uma sequecia de colunas padrão 
             ("permissao_adm_1", "podera acessar a view da pagina usuarios.html"),
             ("permissao_adm_2", "podera visualizar o privado do painel.html")
         ]
+
+class Alerta(models.Model): #Tabela Produtos
+     m3 = models.IntegerField('Metros_c') #Colunas4
+     email = models.CharField('Email', max_length=100)
+     descricao = models.CharField('Descricao', max_length=200)    
+
+class Consumo(models.Model): #Tabela Consumo
+     h_inicial = models.CharField('H_Inicial', max_length=5) #Colunas4
+     h_final = models.CharField('H_Final', max_length=5)
+     dias = models.IntegerField('Dias') 
