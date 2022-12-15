@@ -13,14 +13,15 @@
 
    <p>Olá {{ user.username }}</p>
    <p>E-mail: {{ user.email }}</p>
-
+    <p><a href="{% url 'dados' user.cpf %}">Alterar Dados Pessoais</a></p>
+    <p><a href="">Alterar Senha</a></p>
 
 
    {% if perms.core.permissao_adm_2 %}
        <p>Texto somente com Permissão 2</p>
    {% endif %}
 
- 
+    
     <p><a href="{% url 'listar_alerta' %}">Alerta</a></p>
     <p><a href="{% url 'listar_consumo' %}">Consumo</a></p>
 

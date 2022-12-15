@@ -90,9 +90,9 @@ def registro(request):
 #MEUS DADOS - a função dados que exibirá os dados do usuário em um formulário (primeiro acesso), e também poderá atualizar os dados (caso ele faça alguma alteração e salve):
 
 @login_required
-def dados(request, id):
-    user = Usuario.objects.get(pk=id)
-    form = UsuarioForm(request.POST or None, isinstance=user)
+def dados(request, cpf):
+    user = Usuario.objects.get(pk=cpf)
+    form = UsuarioForm(request.POST or None, instance=user)
     if form.is_valid():
         form.save()   
         return redirect('painel')

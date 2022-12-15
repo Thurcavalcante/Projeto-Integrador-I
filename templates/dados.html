@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>TELA DE EDIÇÃO DE USUARIO</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <!--<p>Usuário: {{ form.username }}</p>
+        <p>CPF: {{ form.cpf }}</p>
+        <p>E-mail: {{ form.email }}</p>
+        <p>Nome: {{ form.nome }}</p>
+        <p>Idade: {{ form.idade }}</p>-->
+        {{form}}
+        
+    <input type="submit" value="Cadastrar">
+    </form>
+
+</body>
+</html>
