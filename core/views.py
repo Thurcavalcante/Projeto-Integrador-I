@@ -26,6 +26,9 @@ def painel(request):
 def painel2(request):
     return render(request, 'painel2.html')      
 
+def perfil(request):
+    return render(request, 'perfil.html')
+
 def autenticacao(request):
     '''
     se o usuário digitou algo no formulário e clicou em enviar, o if 

@@ -13,6 +13,8 @@ class Usuario(AbstractUser):
 
     USERNAME_FIELD = 'cpf' 
 
+    # CPF: 222
+    # Senha: 123
 
     class Meta:  
         permissions = [
