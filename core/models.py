@@ -9,10 +9,12 @@ class Usuario(AbstractUser):# Vai conter no BD, uma sequecia de colunas padrão 
     nome = models.CharField('Nome', max_length=100)
     idade = models.IntegerField('Idade')
     cpf = models.CharField('CPF', max_length=11, unique=True, primary_key=True) #unique não permite que tenha 2 cadastros com o memso dado, nesse caso, o CPF.
-    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
+    #categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
 
     USERNAME_FIELD = 'cpf' #A partir de agora o usuario deverá logar com o CPF, e não mais com o usuario.
 
+    # CPF: 222
+    # Senha: 123
 
     class Meta: #Definindo permissões que o usuario poderá assumir 
         permissions = [
