@@ -17,7 +17,9 @@
     <form method="POST"> 
         {% csrf_token %}
     <div class="top">
-        {{ form_consumo }}
+     <p>Horário Inicial: {{ form_consumo.h_inicial }} </p> 
+     <p>Horário Final: {{ form_consumo.h_final }} </p>
+     <p>Dias de Consumo: {{ form_consumo.dias }} </p>
     </div>
     <p><input type="submit" class="btn btn-success" value="Salvar"/></a></p>
     </form>

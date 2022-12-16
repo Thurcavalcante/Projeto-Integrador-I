@@ -17,7 +17,9 @@
     <form method="POST">
         {% csrf_token %}
     <div class="top">
-        {{ form_alerta }}
+    <p>Metros Cúbicos: {{ form_alerta.m3 }}</p>  
+    <p>E-mail: {{ form_alerta.email }}</p>  
+    <p>Descrição: {{ form_alerta.descricao }}</p> 
     </div>
     <p><input type="submit" class="btn btn-success" value="Salvar"/></a></p>
     </form>

@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!--PAGINA ONDE O ADMINISTRADOR PODE VISUALIZAR TODOS OS SEUS CLIENTES(USUARIOS DO SISTEMA) E DADOS -->
     <p>Somente com permissão de ADMINISTRADOR</p>
 
     {% if perms.core.permissao_02 %}
@@ -14,5 +15,8 @@
     {% endif %}
 
     <p><a href="{% url 'logout' %}">Sair</a></p>
+
+    <p><a href="{% url 'painel' %}">Voltar</a></p>
+
 </body>
 </html>

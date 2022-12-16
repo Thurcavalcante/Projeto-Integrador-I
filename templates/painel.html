@@ -13,15 +13,17 @@
    <!-- <h1>TELA DE PAINEL -  BEM-VINDO!</h1> -->
 
    <!-- <p>Olá {{ user.username }}</p> -->
-   <!-- <p>E-mail: {{ user.email }}</p> -->
     <!-- <p><a href="{% url 'dados' user.cpf %}">Alterar Dados Pessoais</a></p> -->
     <!-- <p><a href="">Alterar Senha</a></p> -->
 
 
-   {% if perms.core.permissao_adm_2 %}
+   {% if perms.core.permissao_adm_2 %} 
        <p>Texto somente com Permissão 2</p>
    {% endif %}
 
+   {% if perms.core.permissao_adm_1 %}
+    <p><a href="{% url 'pagina_usuarios' %}">Usuarios (Clientes)</a></p>
+   {% endif %}
     
     <!-- <p><a href="{% url 'listar_alerta' %}">Alerta</a></p> -->
     <!-- <p><a href="{% url 'listar_consumo' %}">Consumo</a></p> -->
@@ -102,7 +104,7 @@
                     <div class="col col-md-4">
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">Consumo Médio</h5>
+                          <h5 class="card-title">Cadastrar Consumo </h5>
                           
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="{% url 'listar_consumo' %}" class="btn btn-primary">Acessar</a>
@@ -133,7 +135,7 @@
                     <div class="col col-md-4">
                         <div class="card">
                           <div class="card-body">
-                            <h5 class="card-title">Alertas</h5>
+                            <h5 class="card-title">Cadastrar Alertas</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="{% url 'listar_alerta' %}" class="btn btn-primary">Acessar</a>
                           </div>

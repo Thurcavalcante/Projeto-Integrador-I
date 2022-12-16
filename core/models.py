@@ -13,9 +13,6 @@ class Usuario(AbstractUser):
 
     USERNAME_FIELD = 'cpf' 
 
-    # CPF: 222
-    # Senha: 123
-
     class Meta:  
         permissions = [
             ("permissao_adm_1", "podera acessar a view da pagina usuarios.html"),
@@ -29,10 +26,10 @@ class Historico_Consumo(models.Model):
 
 class Alerta(models.Model): #Tabela Alerta
      m3 = models.IntegerField('Metros_c') 
-     email = models.CharField('Email', max_length=100)
+     email = models.EmailField('Email', max_length=200, )
      descricao = models.CharField('Descricao', max_length=200)    
 
 class Consumo(models.Model): #Tabela Consumo
-     h_inicial = models.CharField('H_Inicial', max_length=5) #Colunas
-     h_final = models.CharField('H_Final', max_length=5)
+     h_inicial = models.TimeField('H_Inicial') #Colunas
+     h_final = models.TimeField('H_Final')
      dias = models.IntegerField('Dias')     
