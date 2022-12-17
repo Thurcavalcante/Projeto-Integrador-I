@@ -3,7 +3,7 @@ from distutils.command.upload import upload
 from django.contrib.auth.models import AbstractUser #Padrão
 
 class Categoria(models.Model):
-    nome = models.CharField("Nome", max_length=100)
+    nome = models.CharField('Nome', max_length=100)
 
 class Usuario(AbstractUser):
     nome = models.CharField('Nome', max_length=100)
@@ -25,11 +25,16 @@ class Historico_Consumo(models.Model):
 
 
 class Alerta(models.Model): #Tabela Alerta
-     m3 = models.IntegerField('Metros_c') 
-     email = models.EmailField('Email', max_length=200, )
-     descricao = models.CharField('Descricao', max_length=200)    
+    m3 = models.IntegerField('Metros_c') 
+ #   tempo_cons = models.CharField('Tempo_cons', max_length=50) #ERRO, TEVE QUE TIRAR DE FORMS E CADASTRAR_ALERTA.HTML
+    descricao = models.CharField('Descricao', max_length=200)    
 
 class Consumo(models.Model): #Tabela Consumo
      h_inicial = models.TimeField('H_Inicial') #Colunas
      h_final = models.TimeField('H_Final')
-     dias = models.IntegerField('Dias')     
+     dias = models.IntegerField('Dias')  
+
+
+class Residencia(models.Model):      
+    endereco = models.CharField('Endereco', max_length=200)   
+    apelido = models.CharField('Apelido', max_length=50)

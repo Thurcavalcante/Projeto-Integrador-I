@@ -24,7 +24,11 @@
    {% if perms.core.permissao_adm_1 %}
     <p><a href="{% url 'pagina_usuarios' %}">Usuarios (Clientes)</a></p>
    {% endif %}
+
     
+   <a href="{% url 'listar_residencia' %}" class="btn btn-primary">Cadastrar Residencia</a>
+   <a href="{% url 'listar_categoria' %}" class="btn btn-primary">Categorias</a> 
+
     <!-- <p><a href="{% url 'listar_alerta' %}">Alerta</a></p> -->
     <!-- <p><a href="{% url 'listar_consumo' %}">Consumo</a></p> -->
 

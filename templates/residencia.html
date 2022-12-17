@@ -26,21 +26,21 @@
 <body> 
  
         
-    {% for alerta in todos_alerta %} 
+    {% for residencia in todas_residencia %} 
     
         <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">Metros Cúbicos</th>
-                <th scope="col">Descrição</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Apelido</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
               <tr>
-                <td>{{alerta.m3}}</td>
-                <td>{{alerta.descricao}}</td>
-                <td><a href="{% url 'editar_alerta' alerta.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
-                <td><a href="{% url 'remover_alerta' alerta.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
+                <td>{{residencia.endereco}}</td>
+                <td>{{residencia.apelido}}</td>
+                <td><a href="{% url 'editar_residencia' residencia.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
+                <td><a href="{% url 'remover_residencia' residencia.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
               </tr>
             </tbody>
           </table>
@@ -48,13 +48,13 @@
         {% empty %}
     
         <div class="alert alert-danger" role="alert">
-          <p class="cent">Nenhum alerta cadastrado!</p> 
+          <p class="cent">Nenhuma residencia cadastrada!</p> 
         </div>
 
-        <p><a href="{% url 'painel' %}">Voltar para o painel</a></p>
+        
 
         {% endfor %}
-        <p class="center"><a href="{% url 'cadastrar_alerta' %}"><button type="button" class="btn btn-success">Cadastrar Alerta</button></a></p>
+        <p class="center"><a href="{% url 'cadastrar_residencia' %}"><button type="button" class="btn btn-success">Cadastrar Residencia</button></a></p>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <p><a href="{% url 'painel' %}">Voltar para o painel</a></p>
 </body>

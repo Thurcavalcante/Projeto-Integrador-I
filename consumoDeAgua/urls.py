@@ -18,6 +18,8 @@ from django.urls import path
 from core.views import home, painel, painel2, perfil, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
 from core.views import listar_alerta, cadastrar_alerta, editar_alerta, remover_alerta
 from core.views import listar_consumo, cadastrar_consumo, editar_consumo, remover_consumo
+from core.views import listar_residencia, cadastrar_residencia, editar_residencia, remover_residencia
+from core.views import listar_categoria, cadastrar_categoria, editar_categoria, remover_categoria
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -43,6 +45,16 @@ urlpatterns = [
     path('consumo_cadastrar/', cadastrar_consumo, name='cadastrar_consumo'),
     path('consumo_editar/<int:id>/', editar_consumo, name='editar_consumo'),
     path('consumo_remover/<int:id>/', remover_consumo, name='remover_consumo'),
+
+    path('residencia/', listar_residencia, name='listar_residencia'),#Residencia
+    path('residencia_cadastrar/', cadastrar_residencia, name='cadastrar_residencia'),
+    path('residencia_editar/<int:id>/', editar_residencia, name='editar_residencia'),
+    path('residencia_remover/<int:id>/', remover_residencia, name='remover_residencia'),
+
+    path('categoria/', listar_categoria, name='listar_categoria'),#Categoria
+    path('categoria_cadastrar/', cadastrar_categoria, name='cadastrar_categoria'),
+    path('categoria_editar/<int:id>/', editar_categoria, name='editar_categoria'),
+    path('categoria_remover/<int:id>/', remover_categoria, name='remover_categoria'),
 ]
 
 
