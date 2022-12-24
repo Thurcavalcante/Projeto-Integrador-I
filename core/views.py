@@ -5,9 +5,9 @@ from django.contrib.auth import logout #função responsável pelo logout
 from django.contrib.auth.decorators import permission_required #Definindo que o acesso à View só será feito por usuários que tiverem a permissão permissao_adm_1 definida:
 from django.contrib.auth.models import Permission #Primeiro passo: Importar o objeto Permission em Views:
 from django.contrib.auth.forms import UserCreationForm #Registro: UserCreationForm: é um ModelForm que já vem implementado no Django, com 3 campos para o registro de usuário: username, password1 e password2.
-from .forms import UsuarioForm, AlertaForm, ConsumoForm #importando a class criado em forms.py 
+from .forms import UsuarioForm, AlertaForm, ConsumoForm, ResidenciaForm, CategoriaForm #importando a class criado em forms.py 
 from django.contrib.auth.models import User
-from .models import Usuario, Alerta, Consumo
+from .models import Usuario, Alerta, Consumo, Residencia, Categoria
 # Create your views here.
 
 def home(request):
@@ -197,3 +197,100 @@ def remover_consumo(request, id):
     consumo = Consumo.objects.get(pk=id)
     consumo.delete()
     return redirect('listar_consumo')  
+
+
+
+#Residencia 
+@login_required 
+def listar_residencia(request):       
+    residencia = Residencia.objects.all()
+    contexto = {
+        'todas_residencia': residencia
+    }
+    return render (request, 'residencia.html', contexto)
+
+
+@login_required 
+def cadastrar_residencia(request):     
+    form = ResidenciaForm(request.POST or None)
+
+    if form.is_valid(): #Se os dados forem validos, salve o formulario..
+        form.save()
+        return redirect('listar_residencia') # e redirecione o usuario para pagina de listagem
+
+    contexto = {
+        'form_residencia': form
+    }
+    return render(request, 'residencia_cadastrar.html', contexto)
+
+@login_required 
+def editar_residencia(request, id): #EDITAR dados da residencia
+    residencia = Residencia.objects.get(pk=id)
+
+    form = ResidenciaForm(request.POST or None, instance=residencia)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_residencia')
+
+    contexto = {
+        'form_residencia': form
+    }    
+
+    return render (request, 'residencia_cadastrar.html', contexto)
+
+@login_required 
+def remover_residencia(request, id): 
+    residencia = Residencia.objects.get(pk=id) 
+    residencia.delete()
+    return redirect('listar_residencia')      
+
+
+
+
+#Categoria
+@login_required 
+def listar_categoria(request):       
+    categoria = Categoria.objects.all()
+    contexto = {
+        'todas_categoria': categoria
+    }
+    return render (request, 'categoria.html', contexto)
+
+
+@login_required 
+def cadastrar_categoria(request):     
+    form = CategoriaForm(request.POST or None)
+
+    if form.is_valid(): #Se os dados forem validos, salve o formulario..
+        form.save()
+        return redirect('listar_categoria') # e redirecione o usuario para pagina de listagem
+
+    contexto = {
+        'form_categoria': form
+    }
+    return render(request, 'categoria_cadastrar.html', contexto)
+
+
+@login_required 
+def editar_categoria(request, id): #EDITAR nome da categoria
+    categoria = Categoria.objects.get(pk=id)
+
+    form = CategoriaForm(request.POST or None, instance=categoria)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_categoria')
+
+    contexto = {
+        'form_categoria': form
+    }    
+
+    return render (request, 'categoria_cadastrar.html', contexto)
+
+
+@login_required 
+def remover_categoria(request, id): 
+    categoria = Categoria.objects.get(pk=id) 
+    categoria.delete()
+    return redirect('listar_categoria')          

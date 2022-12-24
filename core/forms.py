@@ -1,6 +1,6 @@
 from dataclasses import fields
 from .models import Usuario
-from .models import Alerta, Consumo
+from .models import Alerta, Consumo, Residencia, Categoria
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 
@@ -18,9 +18,19 @@ class UsuarioForm(UserCreationForm):
 class AlertaForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
         model = Alerta
-        fields = ['m3', 'email', 'descricao']
+        fields = ['m3', 'descricao']
 
 class ConsumoForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
         model = Consumo
-        fields = ['h_inicial', 'h_final', 'dias']        
+        fields = ['h_inicial', 'h_final', 'dias']    
+
+class ResidenciaForm(ModelForm):
+    class Meta:
+        model = Residencia    
+        fields = ['endereco', 'apelido']   
+
+class CategoriaForm(ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['nome']               

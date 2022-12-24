@@ -12,13 +12,25 @@
 </head>
 <body>
    <!-- <p>Olá {{ user.username }}</p> -->
-   <!-- <p>E-mail: {{ user.email }}</p> -->
     <!-- <p><a href="{% url 'dados' user.cpf %}">Alterar Dados Pessoais</a></p> -->
     <!-- <p><a href="">Alterar Senha</a></p> -->
 
    {% if perms.core.permissao_adm_2 %}
        <p>Texto somente com Permissão 2</p>
    {% endif %}
+
+
+   {% if perms.core.permissao_adm_2 %} 
+       <p>Texto somente com Permissão 2</p>
+   {% endif %}
+
+   {% if perms.core.permissao_adm_1 %}
+    <p><a href="{% url 'pagina_usuarios' %}">Usuarios (Clientes)</a></p>
+   {% endif %}
+
+    
+   <a href="{% url 'listar_residencia' %}" class="btn btn-primary">Cadastrar Residencia</a>
+   <a href="{% url 'listar_categoria' %}" class="btn btn-primary">Categorias</a> 
 
     <!-- <p><a href="{% url 'listar_alerta' %}">Alerta</a></p> -->
     <!-- <p><a href="{% url 'listar_consumo' %}">Consumo</a></p> -->
@@ -33,7 +45,7 @@
                   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-light text-decoration-none">
-                      <img src="https://cdn-icons-png.flaticon.com/512/2534/2534347.png" alt="logo" width="16px" height="16px">
+                      <img src="https://cdn-icons-png.flaticon.com/512/2534/2534347.png" alt="logo" width="30px" height="30px">
                     </a>
   
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -62,10 +74,8 @@
                     </form> -->
             
                     <div class="dropdown text-end">
-                      
-
                       <a href="#" class="nav-link px-2 d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{ user.username }}
-                        <img src="https://avatars.githubusercontent.com/u/85133009?s=400&u=6e8ae831688f94c6800275e2636f55f58c69b26c&v=4" alt="mdo" width="32" height="32" class="rounded-circle">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="mdo" width="30" height="30" class="rounded-circle">
                       </a>
 
                       <ul class="dropdown-menu text-small" style="">
@@ -91,7 +101,7 @@
                     <div class="col col-md-4">
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">Consumo Médio</h5>
+                          <h5 class="card-title">Cadastrar Consumo </h5>
                           
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="{% url 'listar_consumo' %}" class="btn btn-primary">Acessar</a>
@@ -122,7 +132,7 @@
                     <div class="col col-md-4">
                         <div class="card">
                           <div class="card-body">
-                            <h5 class="card-title">Alertas</h5>
+                            <h5 class="card-title">Cadastrar Alertas</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="{% url 'listar_alerta' %}" class="btn btn-primary">Acessar</a>
                           </div>
@@ -141,6 +151,36 @@
                         <div class="card">
                           <div class="card-body">
                             <h5 class="card-title">Vazamento</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Acessar</a>
+                          </div>
+                        </div>
+                      </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col col-md-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Cadastrar Residencias</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="{% url 'listar_residencia' %}" class="btn btn-primary">Acessar</a>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col col-md-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Cadastrar Categorias</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="{% url 'listar_categoria' %}" class="btn btn-primary">Acessar</a>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col col-md-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Cadastrar ...</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Acessar</a>
                           </div>
