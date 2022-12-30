@@ -7,19 +7,14 @@ from django.contrib.auth.models import Permission #Primeiro passo: Importar o ob
 from django.contrib.auth.forms import UserCreationForm #Registro: UserCreationForm: é um ModelForm que já vem implementado no Django, com 3 campos para o registro de usuário: username, password1 e password2.
 from .forms import UsuarioForm, AlertaForm, ConsumoForm, ResidenciaForm, CategoriaForm #importando a class criado em forms.py 
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .models import Usuario, Alerta, Consumo, Residencia, Categoria
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html')  
 
-#def cadastro(request):
-    #return render(request, 'cadastro.html')
-
-# def login(request):
-#     return render(request, 'login.html')   
-
-@login_required #Para que somente usuários autenticados acessem o template perfil, em views adicionar a anotação @login_required
+@login_required 
 def painel(request):
     return render(request, 'painel.html') 
 
@@ -41,6 +36,7 @@ def autenticacao(request):
        user = authenticate(request, username=usuario, password=senha)
        if user is not None:
         login(request, user)
+        messages.success(request, 'Bem-vindo(a)') #corrigir
         return redirect('painel')
        else:
         return redirect('login') 
@@ -53,26 +49,36 @@ def desconectar(request):
 
 
 def cadastro_manual(request):
+    
+
     user = Usuario.objects.create_user(
-        username='admin02',
-        email='admin02@email.com',
-        cpf='22222222222',
-        nome='Administrador02',
-        password='admin222',
-        idade=30,
+        username='admin03',
+        email='admin03@email.com',
+        cpf='333333333',
+        nome='Administrador03',
+        password='admin333',
+        idade=26,
+        categoria = Categoria.objects.get(pk=1),
         is_superuser=False)
         
-     #permission = Permission.objects.get(codename='permissao_adm_1') #adicionando ssds a permissao: permissao_adm_1, a este usuario == Podemos criar novos usuarios que não sejam administradores e não damos essas permissões a ele
-     #user.user_permissions.add(permission)
+
     permission1 = Permission.objects.get(codename='permissao_adm_1')
     permission2 = Permission.objects.get(codename='permissao_adm_2')
-    user.user_permissions.add(permission1, permission2)
+    permission3 = Permission.objects.get(codename='permissao_adm_3')
+    user.user_permissions.add(permission1, permission2, permission3)
 
 
     user.save()
     return redirect('home')   
 
-@login_required #Definindo que o acesso à View só será feito por usuários que tiverem a permissão permissao_adm_1 definida:
+    #Se for modificar um usuario
+    # user = Usuario.objects.get(pk='22222222222')
+    # permission3 = Permission.objects.get(codename='permissao_adm_3')
+    # user.user_permissions.add(permission3)
+    # user.save()
+    # return redirect('home')  
+
+@login_required 
 @permission_required('core.permissao_adm_1')
 def pagina_usuarios(request): 
     return render(request, 'usuarios.html')     
@@ -119,10 +125,11 @@ def listar_alerta(request):
 @login_required 
 def cadastrar_alerta(request):     
     form = AlertaForm(request.POST or None)
-
-    if form.is_valid(): #Se os dados forem validos, salve o formulario..
-        form.save()
-        return redirect('listar_alerta') # e redirecione o usuario para pagina de listagem
+    if form.is_valid():
+        alerta = form.save(commit=False)
+        alerta.usuario = request.user
+        alerta.save()
+        return redirect('listar_alerta') 
 
     contexto = {
         'form_alerta': form
@@ -166,10 +173,11 @@ def listar_consumo(request):
 @login_required 
 def cadastrar_consumo(request):     
     form = ConsumoForm(request.POST or None)
-
-    if form.is_valid(): #Se os dados forem validos, salve o formulario..
-        form.save()
-        return redirect('listar_consumo') # e redirecione o usuario para pagina de listagem
+    if form.is_valid(): 
+        consumo = form.save(commit=False)
+        consumo.usuario = request.user
+        consumo.save()
+        return redirect('listar_consumo') 
 
     contexto = {
         'form_consumo': form
@@ -213,10 +221,11 @@ def listar_residencia(request):
 @login_required 
 def cadastrar_residencia(request):     
     form = ResidenciaForm(request.POST or None)
-
-    if form.is_valid(): #Se os dados forem validos, salve o formulario..
-        form.save()
-        return redirect('listar_residencia') # e redirecione o usuario para pagina de listagem
+    if form.is_valid(): 
+        residencia = form.save(commit=False)
+        residencia.usuario = request.user
+        residencia.save()
+        return redirect('listar_residencia') 
 
     contexto = {
         'form_residencia': form
@@ -250,6 +259,7 @@ def remover_residencia(request, id):
 
 #Categoria
 @login_required 
+@permission_required('core.permissao_adm_3')
 def listar_categoria(request):       
     categoria = Categoria.objects.all()
     contexto = {
@@ -259,12 +269,13 @@ def listar_categoria(request):
 
 
 @login_required 
+@permission_required('core.permissao_adm_3')
 def cadastrar_categoria(request):     
     form = CategoriaForm(request.POST or None)
 
-    if form.is_valid(): #Se os dados forem validos, salve o formulario..
+    if form.is_valid(): 
         form.save()
-        return redirect('listar_categoria') # e redirecione o usuario para pagina de listagem
+        return redirect('listar_categoria') 
 
     contexto = {
         'form_categoria': form
@@ -273,6 +284,7 @@ def cadastrar_categoria(request):
 
 
 @login_required 
+@permission_required('core.permissao_adm_3')
 def editar_categoria(request, id): #EDITAR nome da categoria
     categoria = Categoria.objects.get(pk=id)
 
@@ -290,6 +302,7 @@ def editar_categoria(request, id): #EDITAR nome da categoria
 
 
 @login_required 
+@permission_required('core.permissao_adm_3')
 def remover_categoria(request, id): 
     categoria = Categoria.objects.get(pk=id) 
     categoria.delete()
