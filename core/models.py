@@ -27,10 +27,11 @@ class Usuario(AbstractUser):
 
 
 class Alerta(models.Model): #Tabela Alerta
-    m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 4)
-    tempo_cons = models.CharField('Tempo_cons', max_length=50) #ERRO, TEVE QUE TIRAR DE FORMS E CADASTRAR_ALERTA.HTML -> preencher com valor nulo
+    m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 3)
+    tempo_cons = models.CharField('Tempo_cons', max_length=50) 
     descricao = models.CharField('Descricao', max_length=200)  
-    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)  
+    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
+    #periodo_alerta = models.ForeignKey(Periodo_Alerta, on_delete=models.PROTECT) 
 
 class Consumo(models.Model): #Tabela Gerencia Consumo
      h_inicial = models.TimeField('H_Inicial')
@@ -61,3 +62,8 @@ class Historico_Tarifa(models.Model):
     historico_consumo = models.ForeignKey(Historico_Consumo, on_delete=models.PROTECT)
     #VARIAÇÕES DE CONSUMO -> 0 a 10m3 = 40,00 de 10 a 12 = 50 -- FALTA INSERIR
   
+#class Periodo_Alerta(models.Model):
+  #  periodo = models.CharField('Nome', max_length=100)
+    
+  #  def __str__(self):
+   #   return self.periodo

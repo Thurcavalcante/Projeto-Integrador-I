@@ -171,7 +171,7 @@ def listar_consumo(request):
 
 
 @login_required 
-def cadastrar_consumo(request):     
+def cadastrar_consumo(request): 
     form = ConsumoForm(request.POST or None)
     if form.is_valid(): 
         consumo = form.save(commit=False)
