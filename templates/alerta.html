@@ -33,12 +33,14 @@
               <tr>
                 <th scope="col">Metros Cúbicos</th>
                 <th scope="col">Descrição</th>
+                <th scope="col">Tempo de Consumo</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
               <tr>
                 <td>{{alerta.m3}}</td>
                 <td>{{alerta.descricao}}</td>
+                <td>{{alerta.tempo_cons}}</td>
                 <td><a href="{% url 'editar_alerta' alerta.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
                 <td><a href="{% url 'remover_alerta' alerta.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
               </tr>

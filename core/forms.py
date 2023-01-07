@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 class UsuarioForm(UserCreationForm):
     class Meta:
         model = Usuario
-        fields = ['username', 'password1', 'password2', 'email', 'nome', 'idade', 'cpf']    
+        fields = ['username', 'password1', 'password2', 'email', 'nome', 'idade', 'cpf', 'categoria']    
 
 # class UsuarioEdicaoForm(UserCreationForm):
 #     class Meta:
@@ -18,7 +18,7 @@ class UsuarioForm(UserCreationForm):
 class AlertaForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
         model = Alerta
-        fields = ['m3', 'descricao']
+        fields = ['m3', 'descricao', 'tempo_cons']
 
 class ConsumoForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
@@ -33,4 +33,9 @@ class ResidenciaForm(ModelForm):
 class CategoriaForm(ModelForm):
     class Meta:
         model = Categoria
-        fields = ['nome']               
+        fields = ['nome']    
+
+#class PeriodoAlertaForm(ModelForm):    
+  #  class Meta:
+   #     model = Periodo_Alerta  
+   #    fields = ['nome']            
