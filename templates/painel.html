@@ -19,11 +19,6 @@
        <p>Texto somente com Permissão 2</p>
    {% endif %}
 
-
-   {% if perms.core.permissao_adm_2 %} 
-       <p>Texto somente com Permissão 2</p>
-   {% endif %}
-
    {% if perms.core.permissao_adm_1 %}
     <p><a href="{% url 'pagina_usuarios' %}">Usuarios (Clientes)</a></p>
    {% endif %}

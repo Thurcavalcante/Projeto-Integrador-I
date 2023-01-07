@@ -31,13 +31,21 @@
         <table class="table table-hover">
             <thead>
               <tr>
+                <th scope="col">Estado</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Bairro</th>
                 <th scope="col">Endereço</th>
+                <th scope="col">Complemento</th>
                 <th scope="col">Apelido</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
               <tr>
+                <td>{{residencia.estado}}</td>
+                <td>{{residencia.cidade}}</td>
+                <td>{{residencia.bairro}}</td>
                 <td>{{residencia.endereco}}</td>
+                <td>{{residencia.complemento}}</td>
                 <td>{{residencia.apelido}}</td>
                 <td><a href="{% url 'editar_residencia' residencia.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
                 <td><a href="{% url 'remover_residencia' residencia.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>

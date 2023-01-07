@@ -28,7 +28,7 @@ class ConsumoForm(ModelForm): #Criando o formulario da tabela "Alerta"
 class ResidenciaForm(ModelForm):
     class Meta:
         model = Residencia    
-        fields = ['endereco', 'apelido']   
+        fields = ['estado', 'cidade', 'bairro', 'endereco', 'complemento', 'apelido']   
 
 class CategoriaForm(ModelForm):
     class Meta:

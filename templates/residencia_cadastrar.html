@@ -17,7 +17,11 @@
     <form method="POST">
         {% csrf_token %}
     <div class="top">
-    <p>Endereço: {{ form_residencia.endereco }}</p>  
+    <p>Estado: {{ form_residencia.estado }}</p> 
+    <p>Cidade: {{ form_residencia.cidade }}</p>
+    <p>Bairro: {{ form_residencia.bairro }}</p>
+    <p>Endereço: {{ form_residencia.endereco }}</p>
+    <p>Complemento: {{ form_residencia.complemento }}</p>  
     <p>Apelido: {{ form_residencia.apelido }}</p> 
     </div>
     <p><input type="submit" class="btn btn-success" value="Salvar"/></a></p>

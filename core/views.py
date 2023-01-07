@@ -79,9 +79,15 @@ def cadastro_manual(request):
     # return redirect('home')  
 
 @login_required 
-@permission_required('core.permissao_adm_1')
+@permission_required('core.permissao_adm_1') 
 def pagina_usuarios(request): 
-    return render(request, 'usuarios.html')     
+    #Listar usuarios do BD
+    todos_usuarios = Usuario.objects.all() 
+
+    contexto = {
+        'todos_usuarios' : todos_usuarios,
+    }
+    return render(request, 'usuarios.html', contexto)     
 
 
 #REGISTRO
@@ -307,3 +313,5 @@ def remover_categoria(request, id):
     categoria = Categoria.objects.get(pk=id) 
     categoria.delete()
     return redirect('listar_categoria')          
+
+

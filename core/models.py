@@ -40,9 +40,13 @@ class Consumo(models.Model): #Tabela Gerencia Consumo
      usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
 
 class Residencia(models.Model):      
-    endereco = models.CharField('Endereco', max_length=200)   
+    complemento = models.CharField('Complemento', max_length=200)   
     apelido = models.CharField('Apelido', max_length=50)
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+    cidade = models.CharField('Cidade', max_length=200)  
+    estado = models.CharField('Estado', max_length=200)  
+    bairro = models.CharField('Bairro', max_length=200)  
+    endereco = models.CharField('Endereco', max_length=200)  
 
 
 class Historico_Consumo(models.Model):
@@ -62,8 +66,3 @@ class Historico_Tarifa(models.Model):
     historico_consumo = models.ForeignKey(Historico_Consumo, on_delete=models.PROTECT)
     #VARIAÇÕES DE CONSUMO -> 0 a 10m3 = 40,00 de 10 a 12 = 50 -- FALTA INSERIR
   
-#class Periodo_Alerta(models.Model):
-  #  periodo = models.CharField('Nome', max_length=100)
-    
-  #  def __str__(self):
-   #   return self.periodo
