@@ -21,17 +21,20 @@ class Usuario(AbstractUser):
         permissions = [
             ("permissao_adm_1", "podera acessar a view da pagina usuarios.html"),
             ("permissao_adm_2", "podera visualizar o privado do painel.html"),
-            ("permissao_adm_3", "podera acessar o Crud categorias")
+            ("permissao_adm_3", "podera acessar o Crud categorias e Periodo_Consumo_Alerta")
         ]
 
+class Periodo_Consumo_Alerta(models.Model):
+    periodo = models.CharField("Periodo", max_length=200)
 
+    def __str__(self):
+      return self.periodo  
 
 class Alerta(models.Model): #Tabela Alerta
     m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 3)
-    tempo_cons = models.CharField('Tempo_cons', max_length=50) 
     descricao = models.CharField('Descricao', max_length=200)  
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
-    #periodo_alerta = models.ForeignKey(Periodo_Alerta, on_delete=models.PROTECT) 
+    periodo_consumo = models.ForeignKey(Periodo_Consumo_Alerta, on_delete=models.PROTECT)  
 
 class Consumo(models.Model): #Tabela Gerencia Consumo
      h_inicial = models.TimeField('H_Inicial')

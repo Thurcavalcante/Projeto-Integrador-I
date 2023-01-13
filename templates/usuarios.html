@@ -25,21 +25,42 @@
 </head>
 <body>
     <!--PAGINA ONDE O ADMINISTRADOR PODE VISUALIZAR TODOS OS SEUS CLIENTES(USUARIOS DO SISTEMA) E DADOS -->
-    <p>Somente com permissão de ADMINISTRADOR</p>
 
+<script type="text/javascript">
+  function select_mudar(){
+    campo_select = document.getElementById('categoria_select');
+    //alert(campo_select.value)
+    
+    window.location = "/pagina_usuarios/"+campo_select.value+"/";
+    
+    
+  }
+</script>
+
+<script type="text/javascript">
+  campo_select = document.getElementById('categoria_select');
+campo_select.options['{{categoria_selecionada}}'].selected;
+</script>   
+
+  <select name="categoria_select" id="categoria_select" onchange="select_mudar()">
+    <option value="todos">Todos</option>
+    {% for categoria in todas_categorias %}
+    <option value="{{categoria.id}}">{{categoria.nome}}</option>
+    {% endfor %}
+  </select>
     <!--Filtrar tesoureiro, administradoe, padrão-->
- 
-    {% for usuario in todos_usuarios %}
     <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Usuario</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Idade</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Categoria</th>
-          </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th scope="col">Usuario</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Idade</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Categoria</th>
+        </tr>
+      </thead>
+    {% for usuario in todos_usuarios %}
+   
         <tbody class="table-group-divider">
           <tr>
             <td>{{usuario.nome}}</td>
@@ -49,9 +70,9 @@
             <td>{{usuario.categoria}}</td>
           </tr>
         </tbody>
-      </table>
+     
       {% endfor%}
-
+    </table>
 
 
     <p><a href="{% url 'logout' %}">Sair</a></p>

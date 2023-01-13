@@ -5,10 +5,10 @@ from django.contrib.auth import logout #função responsável pelo logout
 from django.contrib.auth.decorators import permission_required #Definindo que o acesso à View só será feito por usuários que tiverem a permissão permissao_adm_1 definida:
 from django.contrib.auth.models import Permission #Primeiro passo: Importar o objeto Permission em Views:
 from django.contrib.auth.forms import UserCreationForm #Registro: UserCreationForm: é um ModelForm que já vem implementado no Django, com 3 campos para o registro de usuário: username, password1 e password2.
-from .forms import UsuarioForm, AlertaForm, ConsumoForm, ResidenciaForm, CategoriaForm #importando a class criado em forms.py 
+from .forms import UsuarioForm, AlertaForm, ConsumoForm, ResidenciaForm, CategoriaForm, Periodo_Consumo_AlertaForm #importando a class criado em forms.py 
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Usuario, Alerta, Consumo, Residencia, Categoria
+from .models import Usuario, Alerta, Consumo, Residencia, Categoria, Periodo_Consumo_Alerta
 # Create your views here.
 
 def home(request):
@@ -80,12 +80,19 @@ def cadastro_manual(request):
 
 @login_required 
 @permission_required('core.permissao_adm_1') 
-def pagina_usuarios(request): 
+def pagina_usuarios(request, categoria_url): 
     #Listar usuarios do BD
-    todos_usuarios = Usuario.objects.all() 
+    if categoria_url == 'todos':
+        todos_usuarios = Usuario.objects.all()
+    else:
+        todos_usuarios = Usuario.objects.filter(categoria=categoria_url)
+    
+    todas_categorias = Categoria.objects.all()
 
     contexto = {
         'todos_usuarios' : todos_usuarios,
+        'todas_categorias': todas_categorias,
+        'categoria_selecionada': categoria_url
     }
     return render(request, 'usuarios.html', contexto)     
 
@@ -121,7 +128,7 @@ def dados(request, cpf):
 #Alerta
 @login_required 
 def listar_alerta(request):       
-    alerta = Alerta.objects.all()
+    alerta = Alerta.objects.filter(usuario=request.user)
     contexto = {
         'todos_alerta': alerta
     }
@@ -169,7 +176,7 @@ def remover_alerta(request, id):
 #Consumo
 @login_required 
 def listar_consumo(request):       
-    consumo = Consumo.objects.all()
+    consumo = Consumo.objects.filter(usuario=request.user)
     contexto = {
         'todos_consumo': consumo
     }
@@ -217,7 +224,7 @@ def remover_consumo(request, id):
 #Residencia 
 @login_required 
 def listar_residencia(request):       
-    residencia = Residencia.objects.all()
+    residencia = Residencia.objects.filter(usuario=request.user)
     contexto = {
         'todas_residencia': residencia
     }
@@ -312,6 +319,76 @@ def editar_categoria(request, id): #EDITAR nome da categoria
 def remover_categoria(request, id): 
     categoria = Categoria.objects.get(pk=id) 
     categoria.delete()
-    return redirect('listar_categoria')          
+    return redirect('listar_categoria') 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Periodo do alerta
+@login_required 
+@permission_required('core.permissao_adm_3')
+def listar_periodoalerta(request):       
+    periodoalerta = Periodo_Consumo_Alerta.objects.all()
+    contexto = {
+        'todos_periodoalerta': periodoalerta
+    }
+    return render (request, 'periodoalerta.html', contexto)
+
+
+@login_required
+@permission_required('core.permissao_adm_3')
+def cadastrar_periodoalerta(request):     
+    form = Periodo_Consumo_AlertaForm(request.POST or None)
+
+    if form.is_valid(): 
+        form.save()
+        return redirect('listar_periodoalerta')
+
+    contexto = {
+        'form_periodoalerta': form
+    }
+    return render(request, 'periodoalerta_cadastrar.html', contexto)
+
+
+@login_required 
+@permission_required('core.permissao_adm_3')
+def editar_periodoalerta(request, id): #EDITAR nome do periodoalerta
+    periodoalerta = Periodo_Consumo_Alerta.objects.get(pk=id)
+
+    form = Periodo_Consumo_AlertaForm(request.POST or None, instance=periodoalerta)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodoalerta')
+
+    contexto = {
+        'form_periodoalerta': form
+    }    
+
+    return render (request, 'periodoalerta_cadastrar.html', contexto)
+
+
+@login_required 
+@permission_required('core.permissao_adm_3')
+def remover_periodoalerta(request, id): 
+    periodoalerta = Periodo_Consumo_Alerta.objects.get(pk=id) 
+    periodoalerta.delete()
+    return redirect('listar_periodoalerta')
 

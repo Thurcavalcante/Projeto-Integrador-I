@@ -20,6 +20,7 @@ from core.views import listar_alerta, cadastrar_alerta, editar_alerta, remover_a
 from core.views import listar_consumo, cadastrar_consumo, editar_consumo, remover_consumo
 from core.views import listar_residencia, cadastrar_residencia, editar_residencia, remover_residencia
 from core.views import listar_categoria, cadastrar_categoria, editar_categoria, remover_categoria
+from core.views import listar_periodoalerta, cadastrar_periodoalerta, editar_periodoalerta, remover_periodoalerta
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -32,7 +33,7 @@ urlpatterns = [
     path('painel/', painel, name='painel'),
     path('painel2/', painel2, name='painel2'), #Adicionado até conseguir autenticar a página pádrão.
     path('cadastro_manual/', cadastro_manual, name='cadastro_manual'),
-    path('pagina_usuarios/', pagina_usuarios, name='pagina_usuarios'), 
+    path('pagina_usuarios/<str:categoria_url>/', pagina_usuarios, name='pagina_usuarios'), 
     path('registro/', registro, name='registro'),
     path('dados/<str:cpf>/', dados, name='dados'), #roda dados, recebendo o parâmetro id do usuário.
 
@@ -55,6 +56,11 @@ urlpatterns = [
     path('categoria_cadastrar/', cadastrar_categoria, name='cadastrar_categoria'),
     path('categoria_editar/<int:id>/', editar_categoria, name='editar_categoria'),
     path('categoria_remover/<int:id>/', remover_categoria, name='remover_categoria'),
+
+    path('periodoalerta/', listar_periodoalerta, name='listar_periodoalerta'),#Periodo do alerta
+    path('periodoalerta_cadastrar/', cadastrar_periodoalerta, name='cadastrar_periodoalerta'),
+    path('periodoalerta_editar/<int:id>/', editar_periodoalerta, name='editar_periodoalerta'),
+    path('periodoalerta_remover/<int:id>/', remover_periodoalerta, name='remover_periodoalerta'),
 ]
 
 

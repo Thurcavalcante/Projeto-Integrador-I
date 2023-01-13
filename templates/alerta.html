@@ -26,7 +26,6 @@
 <body> 
  
         
-    {% for alerta in todos_alerta %} 
     
         <table class="table table-hover">
             <thead>
@@ -36,18 +35,19 @@
                 <th scope="col">Tempo de Consumo</th>
               </tr>
             </thead>
+            {% for alerta in todos_alerta %} 
             <tbody class="table-group-divider">
               <tr>
                 <td>{{alerta.m3}}</td>
                 <td>{{alerta.descricao}}</td>
-                <td>{{alerta.tempo_cons}}</td>
+                <td>{{alerta.periodo}}</td>
                 <td><a href="{% url 'editar_alerta' alerta.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
                 <td><a href="{% url 'remover_alerta' alerta.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
               </tr>
             </tbody>
+            {% empty %}
           </table>
         
-        {% empty %}
     
         <div class="alert alert-danger" role="alert">
           <p class="cent">Nenhum alerta cadastrado!</p> 

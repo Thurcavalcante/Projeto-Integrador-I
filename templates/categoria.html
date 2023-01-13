@@ -23,10 +23,7 @@
         }
      </style>
 </head>
-<body> 
- 
-        
-    {% for categoria in todas_categoria %} 
+<body>    
     
         <table class="table table-hover">
             <thead>
@@ -34,6 +31,8 @@
                 <th scope="col">Nome da Categoria:</th>
               </tr>
             </thead>
+            
+            {% for categoria in todas_categoria %} 
             <tbody class="table-group-divider">
               <tr>
                 <td>{{categoria.nome}}</td>
@@ -41,9 +40,9 @@
                 <td><a href="{% url 'remover_categoria' categoria.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
               </tr>
             </tbody>
+            {% empty %}
           </table>
         
-        {% empty %}
     
         <div class="alert alert-danger" role="alert">
           <p class="cent">Nenhuma categoria cadastrada!</p> 

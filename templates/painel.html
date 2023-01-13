@@ -20,11 +20,12 @@
    {% endif %}
 
    {% if perms.core.permissao_adm_1 %}
-    <p><a href="{% url 'pagina_usuarios' %}">Usuarios (Clientes)</a></p>
+    <p><a href="{% url 'pagina_usuarios' 'todos' %}">Usuarios (Clientes)</a></p>
    {% endif %}
   
    {% if perms.core.permissao_adm_3 %}
-   <a href="{% url 'listar_categoria' %}">Categorias</a> 
+   <a href="{% url 'listar_categoria' %}">Categorias</a> </br>
+   <a href="{% url 'listar_periodoalerta'%}">Periodo do alerta</a>
    {% endif %}
     
    <a href="{% url 'listar_residencia' %}" class="btn btn-primary">Cadastrar Residencia</a>
