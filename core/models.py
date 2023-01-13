@@ -25,16 +25,17 @@ class Usuario(AbstractUser):
         ]
 
 class Periodo_Consumo_Alerta(models.Model):
-    periodo = models.CharField("Periodo", max_length=200)
-
+    periodo = models.CharField("Periodo", max_length=100)
+    horas = models.IntegerField("Horas do Período")
     def __str__(self):
-      return self.periodo  
+      return self.periodo
 
 class Alerta(models.Model): #Tabela Alerta
     m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 3)
     descricao = models.CharField('Descricao', max_length=200)  
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
-    periodo_consumo = models.ForeignKey(Periodo_Consumo_Alerta, on_delete=models.PROTECT)  
+    periodo = models.ForeignKey(Periodo_Consumo_Alerta, on_delete=models.PROTECT)
+    valor_periodo = models.IntegerField("Quantidade do Período")
 
 class Consumo(models.Model): #Tabela Gerencia Consumo
      h_inicial = models.TimeField('H_Inicial')

@@ -32,6 +32,7 @@
             <thead>
               <tr>
                 <th scope="col">Periodo do alerta</th>
+                <th scope="col">Horas</th>
               </tr>
             </thead>
             
@@ -39,6 +40,7 @@
             <tbody class="table-group-divider">
               <tr>
                 <td>{{periodoalerta.periodo}}</td>
+                <td>{{periodoalerta.horas}}</td>
                 <td><a href="{% url 'editar_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-primary">EDITAR</button></a></td>
                 <td><a href="{% url 'remover_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-danger">REMOVER</button></a></td>
               </tr>

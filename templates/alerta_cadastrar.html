@@ -19,7 +19,8 @@
     <div class="top">
     <p>Metros Cúbicos: {{ form_alerta.m3 }}</p>  
     <p>Descrição: {{ form_alerta.descricao }}</p> 
-    <p>Tempo de Consumo: {{ form_alerta.periodo_consumo }}</p>
+    <p>Selecione o período: {{ form_alerta.periodo }}</p>
+    <p>Tempo de consumo (considerando o período): {{ form_alerta.valor_periodo }}</p>
     </div>
     <p><input type="submit" class="btn btn-success" value="Salvar"/></a></p>
     </form>

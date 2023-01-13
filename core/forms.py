@@ -18,7 +18,7 @@ class UsuarioForm(UserCreationForm):
 class AlertaForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
         model = Alerta
-        fields = ['m3', 'descricao', 'periodo_consumo']
+        fields = ['m3', 'descricao', 'periodo', 'valor_periodo']
 
 class ConsumoForm(ModelForm): #Criando o formulario da tabela "Alerta"
     class Meta:
@@ -38,4 +38,4 @@ class CategoriaForm(ModelForm):
 class Periodo_Consumo_AlertaForm(ModelForm):    
    class Meta:
         model = Periodo_Consumo_Alerta  
-        fields = ['periodo']
+        fields = ['periodo', 'horas']
