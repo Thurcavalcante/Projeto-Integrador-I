@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login # as duas funções responsáveis pela autenticação: 1-authenticate - verifica o login e senha; 2- login - realiza a autenticação no sistema.
 from django.contrib.auth import logout #função responsável pelo logout
@@ -14,9 +15,27 @@ from .models import Usuario, Alerta, Consumo, Residencia, Categoria, Periodo_Con
 def home(request):
     return render(request, 'index.html')  
 
+# botao acessar
+def painel_sessao(request, id):
+    request.session['residencia_id'] = id
+    return redirect('painel')
+
 @login_required 
 def painel(request):
-    return render(request, 'painel.html') 
+    if request.session.get('residencia_id', None):
+        id = request.session['residencia_id']
+        residencia = Residencia.objects.get(id=id)
+        print("Id = " + str(id))
+        print("residencia = " + residencia.apelido)
+        contexto = {
+            'residencia_sessao': residencia
+        }
+        return render(request, 'painel.html', contexto)
+    else:
+        return redirect('listar_residencia') 
+
+
+   
 
 def painel2(request):
     return render(request, 'painel2.html')      
@@ -128,7 +147,7 @@ def dados(request, cpf):
 #Alerta
 @login_required 
 def listar_alerta(request):       
-    alerta = Alerta.objects.filter(usuario=request.user)
+    alerta = Alerta.objects.filter(residencia__id = request.session['residencia_id'])
     contexto = {
         'todos_alerta': alerta
     }
@@ -140,7 +159,7 @@ def cadastrar_alerta(request):
     form = AlertaForm(request.POST or None)
     if form.is_valid():
         alerta = form.save(commit=False)
-        alerta.usuario = request.user
+        alerta.residencia = Residencia.objects.get(pk=request.session['residencia_id'])
         alerta.save()
         return redirect('listar_alerta') 
 
@@ -176,7 +195,7 @@ def remover_alerta(request, id):
 #Consumo
 @login_required 
 def listar_consumo(request):       
-    consumo = Consumo.objects.filter(usuario=request.user)
+    consumo = Consumo.objects.filter(residencia__id = request.session['residencia_id'])
     contexto = {
         'todos_consumo': consumo
     }
@@ -188,7 +207,7 @@ def cadastrar_consumo(request):
     form = ConsumoForm(request.POST or None)
     if form.is_valid(): 
         consumo = form.save(commit=False)
-        consumo.usuario = request.user
+        consumo.residencia = Residencia.objects.get(pk=request.session['residencia_id'])
         consumo.save()
         return redirect('listar_consumo') 
 

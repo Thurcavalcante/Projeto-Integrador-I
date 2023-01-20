@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chart.js": "^4.2.0",
+    "rxjs-compat": "^6.6.7"
+  }
+}

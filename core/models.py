@@ -30,19 +30,6 @@ class Periodo_Consumo_Alerta(models.Model):
     def __str__(self):
       return self.periodo
 
-class Alerta(models.Model): #Tabela Alerta
-    m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 3)
-    descricao = models.CharField('Descricao', max_length=200)  
-    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
-    periodo = models.ForeignKey(Periodo_Consumo_Alerta, on_delete=models.PROTECT)
-    valor_periodo = models.IntegerField("Quantidade do Período")
-
-class Consumo(models.Model): #Tabela Gerencia Consumo
-     h_inicial = models.TimeField('H_Inicial')
-     h_final = models.TimeField('H_Final')
-     dias = models.IntegerField('Dias')  
-     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT) 
-
 class Residencia(models.Model):      
     complemento = models.CharField('Complemento', max_length=200)   
     apelido = models.CharField('Apelido', max_length=50)
@@ -52,6 +39,18 @@ class Residencia(models.Model):
     bairro = models.CharField('Bairro', max_length=200)  
     endereco = models.CharField('Endereco', max_length=200)  
 
+class Alerta(models.Model): #Tabela Alerta
+    m3 = models.DecimalField("Metros_c", max_digits = 6, decimal_places = 3)
+    descricao = models.CharField('Descricao', max_length=200)  
+    residencia = models.ForeignKey(Residencia, on_delete=models.PROTECT) 
+    periodo = models.ForeignKey(Periodo_Consumo_Alerta, on_delete=models.PROTECT)
+    valor_periodo = models.IntegerField("Quantidade do Período")
+
+class Consumo(models.Model): #Tabela Gerencia Consumo
+     h_inicial = models.TimeField('H_Inicial')
+     h_final = models.TimeField('H_Final')
+     dias = models.IntegerField('Dias')  
+     residencia = models.ForeignKey(Residencia, on_delete=models.PROTECT) 
 
 class Historico_Consumo(models.Model):
    datahora = models.DateTimeField("Data_Hora") 
@@ -62,11 +61,12 @@ class Vazamento(models.Model): #Hostorico de vazamento
     datahora = models.DateTimeField("Data_Hora")    
     observacao = models.CharField("Observacao", max_length=200)
     consumo = models.ForeignKey(Consumo, on_delete=models.PROTECT)
-
+    residencia = models.ForeignKey(Residencia, on_delete=models.PROTECT)
 
 class Historico_Tarifa(models.Model):
     valor = models.DecimalField("Valor_Tarifa", max_digits = 5, decimal_places = 2)    
     mes = models.DateTimeField("Mes_Consumo")
     historico_consumo = models.ForeignKey(Historico_Consumo, on_delete=models.PROTECT)
+    residencia = models.ForeignKey(Residencia, on_delete=models.PROTECT)
     #VARIAÇÕES DE CONSUMO -> 0 a 10m3 = 40,00 de 10 a 12 = 50 -- FALTA INSERIR
   

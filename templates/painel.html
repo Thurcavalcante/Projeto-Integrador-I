@@ -15,6 +15,7 @@
     <!-- <p><a href="{% url 'dados' user.cpf %}">Alterar Dados Pessoais</a></p> -->
     <!-- <p><a href="">Alterar Senha</a></p> -->
 
+
    {% if perms.core.permissao_adm_2 %}
        <p>Texto somente com Permissão 2</p>
    {% endif %}
@@ -217,7 +218,7 @@
                       </a></li>
 
                       <p class="text-center">
-                        <li><a href="#" class="nav-link px-2 link-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h5>XP Water2</h5></font></font></a></li>
+                        <li><a href="#" class="nav-link px-2 link-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><h5>Residencia: {{ residencia_sessao.apelido }}</h5></font></font></a></li>
                       </p>
                     </ul>
                     <div class="">

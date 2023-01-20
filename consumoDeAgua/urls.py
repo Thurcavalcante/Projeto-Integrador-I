@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home, painel, painel2, perfil, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
+from core.views import home, painel, painel_sessao, painel2, perfil, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
 from core.views import listar_alerta, cadastrar_alerta, editar_alerta, remover_alerta
 from core.views import listar_consumo, cadastrar_consumo, editar_consumo, remover_consumo
 from core.views import listar_residencia, cadastrar_residencia, editar_residencia, remover_residencia
@@ -30,6 +30,7 @@ urlpatterns = [
     path('login/', autenticacao, name='login'), 
     path('logout/', desconectar, name='logout'),
     path('perfil/', perfil, name='perfil'), #Adicionado 16/12/22
+    path('painel_sessao/<int:id>', painel_sessao, name='painel_sessao'),
     path('painel/', painel, name='painel'),
     path('painel2/', painel2, name='painel2'), #Adicionado até conseguir autenticar a página pádrão.
     path('cadastro_manual/', cadastro_manual, name='cadastro_manual'),
