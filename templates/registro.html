@@ -53,6 +53,28 @@
                     {{ form.email }}
                     <!-- <input required type="email" placeholder="joao@email.com"> -->
                 </div>
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'painel' %}">Voltar</a></p>
+    {% else %}
+    <p><a href="{% url 'home' %}">Voltar</a></p>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <p>Usuário: {{ form.username }}</p>
+        <p>Senha: {{ form.password1 }}</p>
+        <p>Repetir Senha: {{ form.password2 }}</p>
+        <p>CPF: {{ form.cpf }}</p>
+        <p>E-mail: {{ form.email }}</p>
+        <p>Nome: {{ form.nome }}</p>
+        <p>Idade: {{ form.idade }}</p>
+        <p>Categoria: {{form.categoria}}</p>
+        {% if user.is_authenticated %}
+    <input type="submit" value="Atualizar">
+    {% else %}
+    <input type="submit" value="Cadastrar">
+    {% endif %}
+    </form>
 
                 <div class="input_box">
                     <label for="categoria"><strong>Idade</strong></label><br>

@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from core.views import home, painel, painel2, painel3, perfil, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
+=======
+from core.views import home, painel, painel_sessao, painel2, perfil, autenticacao, desconectar, cadastro_manual, pagina_usuarios, registro, dados
+>>>>>>> 70c3f2687901fe1034d42b52161d776f769e26a9
 from core.views import listar_alerta, cadastrar_alerta, editar_alerta, remover_alerta
 from core.views import listar_consumo, cadastrar_consumo, editar_consumo, remover_consumo
 from core.views import listar_residencia, cadastrar_residencia, editar_residencia, remover_residencia
@@ -30,6 +34,7 @@ urlpatterns = [
     path('login/', autenticacao, name='login'), 
     path('logout/', desconectar, name='logout'),
     path('perfil/', perfil, name='perfil'), #Adicionado 16/12/22
+    path('painel_sessao/<int:id>', painel_sessao, name='painel_sessao'),
     path('painel/', painel, name='painel'),
     path('painel2/', painel2, name='painel2'),
     path('painel3/', painel3, name='painel3'), #Adicionado 
