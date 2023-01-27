@@ -1,267 +1,106 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <style>
-      .needs-validation{
-        align-items: center;
-      }
-    </style>
+    <title>Registro</title>
+    <link rel="shortcut icon" href="/static/img/ws-logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css/' %}">
+    <style type="text/css">
+        .login_body {
+            padding: 60px;
+            z-index: 90;
+            position: relative;
+            max-width: 450rem;
+            height: 1050px;   
+            margin-left: 50%;
+            background-color: rgb(0, 0, 0, 0.75);
+            border-radius: 10px;
+            box-sizing: border-box;
+            transform: translateX(-50%);
+        }
+     </style>
 </head>
 <body>
-    <h1>TELA DE REGISTRO DE USUARIO</h1>
 
-    <p><a href="{% url 'painel' %}">Voltar</a></p>
+    <div class="login_body">
+        <div class="login_box">
+            <h2>Cadastro</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <label for="nomecompleto"><strong>Nome Completo</strong></label><br>
+                    {{ form.nome }}
+                </div>
+                
+                <div class="input_box">
+                    <label for="usuario"><strong>Usuário</strong></label><br>
+                    {{ form.username }}
+                    <!-- <input required name="usuario" type="text" placeholder="Usuário"> -->
+                </div>
+                
+                <div class="input_box">
+                    <label for="cpf"><strong>CPF</strong></label><br>
+                    {{ form.cpf }}
+                    <!-- <input required name="cpf" type="number" placeholder="Somente números"> -->
+                </div>
 
-    <form method="post">
-        {% csrf_token %}
-        <p>Usuário: {{ form.username }}</p>
-        <p>Senha: {{ form.password1 }}</p>
-        <p>Repetir Senha: {{ form.password2 }}</p>
-        <p>CPF: {{ form.cpf }}</p>
-        <p>E-mail: {{ form.email }}</p>
-        <p>Nome: {{ form.nome }}</p>
-        <p>Idade: {{ form.idade }}</p>
-        <p>Categoria: {{form.categoria}}</p>
-    <input type="submit" value="Cadastrar">
-    </form>
+                <div class="input_box">
+                    <label for="categoria"><strong>E-mail</strong></label><br>
+                    {{ form.email }}
+                    <!-- <input required type="email" placeholder="joao@email.com"> -->
+                </div>
 
-    <div class="container">
-        <main>
-            <div class="py-5 text-center">
-              <img class="d-block mx-auto mb-4" src="/static/img/agua.png" alt="" width="72" height=""> <!--height="57"-->
-              <h2>Checkout form</h2>
-              <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+                <div class="input_box">
+                    <label for="categoria"><strong>Idade</strong></label><br>
+                    {{ form.idade }}
+                    <!-- <input required type="date" placeholder=""> -->
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Categoria de Usuário</strong></label><br>
+                    {{form.categoria}}
+                    <!-- <select id="categoria" required="">
+                        <option selected="" disabled="" value="">Selecione</option>
+                        <option>Admin</option>
+                      </select> -->
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Senha</strong></label><br>
+                    {{ form.password1 }}
+                    <!-- <input required type="password" placeholder="Senha"> -->
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Confirmar senha</strong></label><br>
+                    {{ form.password2 }}
+                    <!-- <input required type="password" placeholder="Confirmar senha"> -->
+                </div>
+
+                <div>
+                    <button class="submit">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+
+            <div class="login_footer">
+                <div class="sign_up">
+                    <p>Já tem uma conta? <a href="{% url 'login' %}">Conectar.</a></p>
+                </div>
             </div>
-        
-            <!-- <div class="row g-5">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                  <span class="text-primary">Your cart</span>
-                  <span class="badge bg-primary rounded-pill">3</span>
-                </h4>
-                <ul class="list-group mb-3">
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Product name</h6>
-                      <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Second product</h6>
-                      <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Third item</h6>
-                      <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                      <h6 class="my-0">Promo code</h6>
-                      <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">−$5</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                  </li>
-                </ul>
-        
-                <form class="card p-2">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <button type="submit" class="btn btn-secondary">Redeem</button>
-                  </div>
-                </form>
-              </div> -->
 
-              {% load widget_tweaks %}
-              <div class="col-md-7 col-lg-8"> 
-                <h4 class="mb-3">Billing address</h4>
-                <form class="needs-validation" novalidate="">
-                  <div class="row g-3">
-                    <div class="col-6">
-                      <!-- Link do Django tweaks: https://pypi.org/project/django-widget-tweaks/ -->
-
-                      <label for="nome" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="nome" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-        
-                    <div class="col-sm-6">
-                      <label for="sobrenome" class="form-label">Sobrenome</label>
-                      <input type="text" class="form-control" id="sobrenome" placeholder="" value="" required="">
-                      <div class="invalid-feedback">
-                        Valid last name is required.
-                      </div>
-                    </div>
-        
-                    <div class="col-12">
-                      <label for="username" class="form-label">Nome do usuário</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" id="username" placeholder="Nome do usuário" required="">
-                      <div class="invalid-feedback">
-                          Your username is required.
-                        </div>
-                      </div>
-                    </div>
-        
-                    <div class="col-12">
-                      <label for="email" class="form-label">Email <span class="text-muted">(Opcional)</span></label>
-                      <input type="email" class="form-control" id="email" placeholder="joao@example.com">
-                      <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                      </div>
-                    </div>
-        
-                    <div class="col-12">
-                      <label for="endereco" class="form-label">Endereço</label>
-                      <input type="text" class="form-control" id="endereco" placeholder="Rua, principal - 123" required="">
-                      <div class="invalid-feedback">
-                        Please enter your shipping address.
-                      </div>
-                    </div>
-        
-                    <div class="col-12">
-                      <label for="cpf" class="form-label">CPF<span class="text-muted"> (Opcional)</span></label>
-                      <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00">
-                    </div>
-
-                    <div class="col-12">
-                      <label for="nascimento" class="form-label">Nascimento<span class="text-muted"> (Opcional)</span></label>
-                      <input type="date" class="form-control" id="nascimento" placeholder="">
-                    </div>
-        
-                    <!-- <div class="col-md-5">
-                      <label for="country" class="form-label">Country</label>
-                      <select class="form-select" id="country" required="">
-                        <option value="">Choose...</option>
-                        <option>United States</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please select a valid country.
-                      </div>
-                    </div>
-        
-                    <div class="col-md-4">
-                      <label for="state" class="form-label">State</label>
-                      <select class="form-select" id="state" required="">
-                        <option value="">Choose...</option>
-                        <option>California</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
-        
-                    <div class="col-md-3">
-                      <label for="zip" class="form-label">Zip</label>
-                      <input type="text" class="form-control" id="zip" placeholder="" required="">
-                      <div class="invalid-feedback">
-                        Zip code required.
-                      </div>
-                    </div> -->
-                  </div>
-        
-                  <!-- <hr class="my-4">
-        
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="same-address">
-                    <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                  </div> -->
-        
-                  <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="save-info">
-                    <label class="form-check-label" for="save-info">Save this information for next time</label>
-                  </div> -->
-        
-                  <hr class="my-4">
-        
-                  <h4 class="mb-3">Tipo de Usuário</h4>
-        
-                  <div class="my-3">
-                    <div class="form-check">
-                      <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                      <label class="form-check-label" for="credit">Professor</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                      <label class="form-check-label" for="debit">Aluno</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                      <label class="form-check-label" for="paypal">Admin</label>
-                    </div>
-                  </div>
-        
-                  <div class="row gy-3">
-                    <div class="col-md-6">
-                      <label for="cc-name" class="form-label">Senha</label>
-                      <input type="password" class="form-control" id="cc-name" placeholder="" required="">
-                      <small class="text-muted">Full name as displayed on card</small>
-                      <div class="invalid-feedback">
-                        Name on card is required
-                      </div>
-                    </div>
-        
-                    <div class="col-md-6">
-                      <label for="cc-number" class="form-label">Confirme sua senha</label>
-                      <input type="password" class="form-control" id="cc-number" placeholder="" required="">
-                      <div class="invalid-feedback">
-                        Credit card number is required
-                      </div>
-                    </div>
-        
-                    <!-- <div class="col-md-3">
-                      <label for="cc-expiration" class="form-label">Expiration</label>
-                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                      <div class="invalid-feedback">
-                        Expiration date required
-                      </div>
-                    </div>
-        
-                    <div class="col-md-3">
-                      <label for="cc-cvv" class="form-label">CVV</label>
-                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                      <div class="invalid-feedback">
-                        Security code required
-                      </div>
-                    </div> -->
-                  </div>
-        
-                  <hr class="my-4">
-        
-                  <button class="w-100 btn btn-warning btn-lg" type="submit">Finalizar o cadastro</button>
-                </form>
-              </div>
+            <div class="login_footer">
+                <div class="terms">
+                    <p>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="#">Saiba mais</a></p>
+                </div>
             </div>
-          </main>
-          <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2017–2022 Company Name</p>
-            <ul class="list-inline">
-              <li class="list-inline-item"><a href="#">Privacy</a></li>
-              <li class="list-inline-item"><a href="#">Terms</a></li>
-              <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-          </footer>
+            
+        </div>
     </div>
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -21,6 +21,9 @@ def painel(request):
 def painel2(request):
     return render(request, 'painel2.html')      
 
+def painel3(request):
+    return render(request, 'painel3.html')      
+
 def perfil(request):
     return render(request, 'perfil.html')
 

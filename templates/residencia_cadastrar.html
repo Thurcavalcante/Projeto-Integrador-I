@@ -6,28 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastar Residencia</title>
+    <link rel="shortcut icon" href="/static/img/ws-logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css/' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style type="text/css">
-  .top{
-   margin-top: 1cm;
-  }
-     </style> 
+        .login_body {
+            padding: 60px;
+            z-index: 90;
+            position: relative;
+            max-width: 450rem;
+            height: 790px;   
+            margin-left: 50%;
+            background-color: rgb(0, 0, 0, 0.75);
+            border-radius: 10px;
+            box-sizing: border-box;
+            transform: translateX(-50%);
+            margin-top: 20px;
+        }
+     </style>
 </head>
 <body>
-    <form method="POST">
-        {% csrf_token %}
-    <div class="top">
-    <p>Estado: {{ form_residencia.estado }}</p> 
-    <p>Cidade: {{ form_residencia.cidade }}</p>
-    <p>Bairro: {{ form_residencia.bairro }}</p>
-    <p>Endereço: {{ form_residencia.endereco }}</p>
-    <p>Complemento: {{ form_residencia.complemento }}</p>  
-    <p>Apelido: {{ form_residencia.apelido }}</p> 
+    <div class="alert" role="alert">
+        <a href="{% url 'listar_residencia' %}">
+          <button type="button" class="btn btn-light rounded-circle">
+            <img src="/static/img/voltar.png" alt="" width="20px" height="30px">
+          </button>
+        </a>
     </div>
-    <p><input type="submit" class="btn btn-success" value="Salvar"/></a></p>
-    </form>
+    <div class="login_body">
+        <div class="login_box">
+            <h2>Cadastar Residencia</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <label for="nomecompleto"><strong>Estado</strong></label><br>
+                    {{ form_residencia.estado }}
+                </div>
+                
+                <div class="input_box">
+                    <label for="usuario"><strong>Cidade</strong></label><br>
+                    {{ form_residencia.cidade }} 
+                </div>
+                
+                <div class="input_box">
+                    <label for="cpf"><strong>Bairro</strong></label><br>
+                    {{ form_residencia.bairro }}
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Endereço</strong></label><br>
+                    {{ form_residencia.endereco }}
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Complemento</strong></label><br>
+                    {{ form_residencia.complemento }}
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Apelido</strong></label><br>
+                    {{ form_residencia.apelido }}
+                </div>
+
+                <div>
+                    <button class="submit">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
 </body>
 </html>
