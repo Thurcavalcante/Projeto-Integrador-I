@@ -65,6 +65,9 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
           }
+          body{
+            background-color: #2a2b3d;
+          }
         </style>
     
         
@@ -72,8 +75,7 @@
         <link href="features.css" rel="stylesheet">
 
 </head>
-<body>
-    <body class="text-center">
+    <body class="ext-center text-light">
         <!-- <header class="site-header sticky-top py-1 bg-dark">
           <nav class="container d-flex flex-column flex-md-row justify-content-between ">
             <a class="py-2" href="#" aria-label="Product">
@@ -107,19 +109,12 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'login' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></a>
                   </li>
                 </ul>
-                <!-- <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Procurar">
-                  <button class="btn btn-outline-success" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Procurar</font></font></button>
-                </form> -->
               </div>
             </div>
           </nav>
         </header>
         <main>
-
-          
-            <div class="carousel-inner">
-              
+            <div class="carousel-inner">  
               <div class="carousel-item active">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
         
@@ -306,12 +301,12 @@
           
               <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-1.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
-                          <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                          <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
                         </li>
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
@@ -327,12 +322,12 @@
                 </div>
           
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-2.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
-                          <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                          <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
                         </li>
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
@@ -348,12 +343,12 @@
                 </div>
           
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-3.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
-                          <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                          <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
                         </li>
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
@@ -367,73 +362,74 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
-
             <div class="b-example-divider"></div>
-            
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal">Nossos Planos</h1>
-      <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
-    </div>
+          
+            <div class="container px-4 py-5" id="custom-cards">
+              <h2 class="pb-2 border-bottom">Nossos Planos</h2>
+          
+              <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                <!-- Add -->
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm text-center">
+                    <div class="card-header py-3 text-bg-primary">
+                      <h4 class="my-0 fw-normal">Basic</h4>
+                    </div>
+                    <div class="card-body text-dark">
+                      <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>10 users included</li>
+                        <li>2 GB of storage</li>
+                        <li>Email support</li>
+                        <li>Help center access</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm text-center">
+                    <div class="card-header py-3 text-bg-primary">
+                      <h4 class="my-0 fw-normal">Pro</h4>
+                    </div>
+                    <div class="card-body text-dark ">
+                      <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>20 users included</li>
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get started</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm text-center border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                      <h4 class="my-0 fw-normal">Premium</h4>
+                    </div>
+                    <div class="card-body text-dark">
+                      <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>30 users included</li>
+                        <li>15 GB of storage</li>
+                        <li>Phone and email support</li>
+                        <li>Help center access</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Contact us</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
   </header>
 
   <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </div>
+
 
             <div class="b-example-divider"></div>
           
@@ -561,8 +557,8 @@
         
         <!-- FOOTER 2-->
         <footer class="container">
-          <p class="float-end"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">De volta ao topo</font></font></a></p>
-          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2017–2022 Company, Inc. · </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Privacidade</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> · </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Termos</font></font></a></p>
+          <p class="float-end"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/static/img/angulo-para-cima.png" alt="" width="25px" height="25px"></font></font></a></p>
+          <p class="text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2017–2022 Company, Inc. · </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Privacidade</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> · </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Termos</font></font></a></p>
         </footer>
         
             <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
