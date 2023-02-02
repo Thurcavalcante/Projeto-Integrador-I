@@ -108,34 +108,19 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'login' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></a>
                   </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'painel' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Painel</font></font></a>
+                  </li>
+                  {% endif %}
                 </ul>
+
               </div>
             </div>
           </nav>
         </header>
         <main>
-            <div class="carousel-inner">  
-              <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-        
-                <div class="container">
-                  <div class="carousel-caption">
-                    <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Outro título de exemplo.</font></font></h1>
-                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Algum conteúdo de espaço reservado representativo para o segundo slide do carrossel.</font></font>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anterior</font></font></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Próximo</font></font></span>
-            </button>
-          </div>
-          
+
          
 
 
@@ -209,43 +194,50 @@
             </symbol>
           </svg>
           <main>
+
+            <img src="../static/img/capa.png" width="1500" height="750" alt="">
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <h1 class="visually-hidden">Features examples</h1>
           
             <div class="container px-4 py-5" id="featured-3">
-              <h2 class="pb-2 border-bottom">Columns with icons</h2>
+              <h2 class="pb-2 border-bottom">Soluções</h2>
               <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="feature col">
                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
+                      <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
+                      <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
+                      <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
+                    </svg>
                   </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
+                  <h3 class="fs-2">Economia</h3>
+                  <p>WaterSystem, é um sistema que vai auxilar no acompanhamento das suas tarifas de água, com soluções que permitem o acompanhamento e redução de gastos.</p>
+
                 </div>
                 <div class="feature col">
                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                      <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+                    </svg>
                   </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
+                  <h3 class="fs-2">Meio Ambiente</h3>
+                  <p>Além do foco no usuário, nosso sistema foi desenvolvido com o intuito de cuidar do meio ambiente, através da economia de água.</p>
+                   <h5>Seja consciente, seja sustentável, seja WaterSystem</h5>
+         
                 </div>
                 <div class="feature col">
                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-ubuntu" viewBox="0 0 16 16">
+                      <path d="M2.273 9.53a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.547Zm9.467-4.984a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546ZM7.4 13.108a5.535 5.535 0 0 1-3.775-2.88 3.273 3.273 0 0 1-1.944.24 7.4 7.4 0 0 0 5.328 4.465c.53.113 1.072.169 1.614.166a3.253 3.253 0 0 1-.666-1.9 5.639 5.639 0 0 1-.557-.091Zm3.828 2.285a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546Zm3.163-3.108a7.436 7.436 0 0 0 .373-8.726 3.276 3.276 0 0 1-1.278 1.498 5.573 5.573 0 0 1-.183 5.535 3.26 3.26 0 0 1 1.088 1.693ZM2.098 3.998a3.28 3.28 0 0 1 1.897.486 5.544 5.544 0 0 1 4.464-2.388c.037-.67.277-1.313.69-1.843a7.472 7.472 0 0 0-7.051 3.745Z"/>
+                    </svg>
                   </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
+                  <h3 class="fs-2">Performasse e praticidade</h3>
+                  <p>Focando no usuário, nosso painel é altamente didático com recursos de fácil acessibilidade, além de contar com ferramentas que vão alerta o usuário sobre gastos acessivos, possíveis vazamentos, alertas de consumo e muito mais. </p>
                 </div>
               </div>
             </div>
@@ -253,7 +245,7 @@
             <div class="b-example-divider"></div>
           
             <div class="container px-4 py-5" id="hanging-icons">
-              <h2 class="pb-2 border-bottom">Hanging icons</h2>
+              <h2 class="pb-2 border-bottom">Saiba mais</h2>
               <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="col d-flex align-items-start">
                   <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
@@ -301,9 +293,9 @@
           
               <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-1.png');">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel_ex_1.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel versátil e didático.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -324,7 +316,7 @@
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-2.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Gráficos em tempo real.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -345,7 +337,7 @@
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-3.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Acompanhe suas residências de qualquer lugar.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -375,17 +367,18 @@
                 <div class="col">
                   <div class="card mb-4 rounded-3 shadow-sm text-center">
                     <div class="card-header py-3 text-bg-primary">
-                      <h4 class="my-0 fw-normal">Basic</h4>
+                      <h4 class="my-0 fw-normal">Básico</h4>
                     </div>
                     <div class="card-body text-dark">
-                      <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">R$0<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
+                        <li>1 Residência</li>
+                        <li>1 Alerta</li>
+                        <li>Acompanhamento de Consumo</li>
+                        <li>Acompanhamento de Tarifas</li>
+                      
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Free</button>
                     </div>
                   </div>
                 </div>
@@ -395,14 +388,14 @@
                       <h4 class="my-0 fw-normal">Pro</h4>
                     </div>
                     <div class="card-body text-dark ">
-                      <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">R$15<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>20 users included</li>
-                        <li>10 GB of storage</li>
-                        <li>Priority email support</li>
-                        <li>Help center access</li>
+                        <li>3 Residências</li>
+                        <li>3 Alertas</li>
+                        <li>Acompanhamento de Consumo</li>
+                        <li>Acompanhamento de Tarifas</li>
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get started</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Pro</button>
                     </div>
                   </div>
                 </div>
@@ -412,14 +405,16 @@
                       <h4 class="my-0 fw-normal">Premium</h4>
                     </div>
                     <div class="card-body text-dark">
-                      <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">$30<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                        <li>Recursos Ilimitados</li>
+                        <li>        +          </li>
+                        <li>Relatorios menssais</li>
+                        <li>Assistência personalizada</li>
+
+                        
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Contact us</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Premium </button>
                     </div>
                   </div>
                 </div>
@@ -440,56 +435,56 @@
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Alertas</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Residências</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Consumo</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Gráficos</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Relatorios</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Tarifa em tempo real</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Consumo em tempo real</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
                 <div class="col d-flex align-items-start">
                   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"/></svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Vazamentos</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
