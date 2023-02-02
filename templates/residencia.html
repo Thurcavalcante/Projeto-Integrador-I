@@ -68,7 +68,7 @@ body {
                 <td><a href="{% url 'editar_residencia' residencia.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/editar.png" alt="" width="40px" height="40px"></button></a></td>
                 
                 <td><a href="{% url 'remover_residencia' residencia.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/remover.png" alt="" width="40px" height="40px"></button></a></td>
-                <td><a href="{% url  'painel_sessao' residencia.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/conecte-se-light.png" alt="" width="40px" height="40px"></button></a></td>
+                <td><a href="{% url  'painel_sessao' residencia.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/entrar.png" alt="" width="40px" height="40px"></button></a></td>
               </tr>
             </tbody>
             {% empty %}
@@ -80,7 +80,7 @@ body {
 
         {% endfor %}
         <p class="center"><a href="{% url 'cadastrar_residencia' %}"><button type="button" class="btn btn-success border-dark"><img src="/static/img/mais.png" alt="" width="30px" height="30px"> Cadastrar</button></a></p>
-
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
