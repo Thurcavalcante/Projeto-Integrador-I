@@ -108,34 +108,19 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'login' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></a>
                   </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'painel' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Painel</font></font></a>
+                  </li>
+                  {% endif %}
                 </ul>
+
               </div>
             </div>
           </nav>
         </header>
         <main>
-            <div class="carousel-inner">  
-              <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-        
-                <div class="container">
-                  <div class="carousel-caption">
-                    <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Outro título de exemplo.</font></font></h1>
-                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Algum conteúdo de espaço reservado representativo para o segundo slide do carrossel.</font></font>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anterior</font></font></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Próximo</font></font></span>
-            </button>
-          </div>
-          
+
          
 
 
@@ -209,6 +194,13 @@
             </symbol>
           </svg>
           <main>
+
+            <img src="../static/img/capa.png" width="1500" height="750" alt="">
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <h1 class="visually-hidden">Features examples</h1>
           
             <div class="container px-4 py-5" id="featured-3">
@@ -246,6 +238,40 @@
                     Call to action
                     <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
                   </a>
+              <h2 class="pb-2 border-bottom">Soluções</h2>
+              <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <div class="feature col">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
+                      <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
+                      <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
+                      <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
+                    </svg>
+                  </div>
+                  <h3 class="fs-2">Economia</h3>
+                  <p>WaterSystem, é um sistema que vai auxilar no acompanhamento das suas tarifas de água, com soluções que permitem o acompanhamento e redução de gastos.</p>
+
+                </div>
+                <div class="feature col">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                      <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+                    </svg>
+                  </div>
+                  <h3 class="fs-2">Meio Ambiente</h3>
+                  <p>Além do foco no usuário, nosso sistema foi desenvolvido com o intuito de cuidar do meio ambiente, através da economia de água.</p>
+                   <h5>Seja consciente, seja sustentável, seja WaterSystem</h5>
+         
+                </div>
+                <div class="feature col">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-ubuntu" viewBox="0 0 16 16">
+                      <path d="M2.273 9.53a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.547Zm9.467-4.984a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546ZM7.4 13.108a5.535 5.535 0 0 1-3.775-2.88 3.273 3.273 0 0 1-1.944.24 7.4 7.4 0 0 0 5.328 4.465c.53.113 1.072.169 1.614.166a3.253 3.253 0 0 1-.666-1.9 5.639 5.639 0 0 1-.557-.091Zm3.828 2.285a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546Zm3.163-3.108a7.436 7.436 0 0 0 .373-8.726 3.276 3.276 0 0 1-1.278 1.498 5.573 5.573 0 0 1-.183 5.535 3.26 3.26 0 0 1 1.088 1.693ZM2.098 3.998a3.28 3.28 0 0 1 1.897.486 5.544 5.544 0 0 1 4.464-2.388c.037-.67.277-1.313.69-1.843a7.472 7.472 0 0 0-7.051 3.745Z"/>
+                    </svg>
+                  </div>
+                  <h3 class="fs-2">Performasse e praticidade</h3>
+                  <p>Focando no usuário, nosso painel é altamente didático com recursos de fácil acessibilidade, além de contar com ferramentas que vão alerta o usuário sobre gastos acessivos, possíveis vazamentos, alertas de consumo e muito mais. </p>
                 </div>
               </div>
             </div>
@@ -254,6 +280,7 @@
           
             <div class="container px-4 py-5" id="hanging-icons">
               <h2 class="pb-2 border-bottom text-center">Hanging icons</h2>
+              <h2 class="pb-2 border-bottom">Saiba mais</h2>
               <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="col d-flex align-items-start">
                   <div class="icon-square text-bg-warning d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
@@ -309,9 +336,10 @@
           
               <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 <div class="col">
-                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-1.png');">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel_ex_1.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 1</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel versátil e didático.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -333,6 +361,7 @@
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-2.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 2</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Gráficos em tempo real.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -354,6 +383,7 @@
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-3.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 3</h3>
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Acompanhe suas residências de qualquer lugar.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
                           <img src="/static/img/ws-logo1.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -384,16 +414,21 @@
                   <div class="card mb-4 rounded-3 shadow-sm text-center border-warning">
                     <div class="card-header py-3 text-bg-warning border-warning">
                       <h4 class="my-0 fw-normal">Basic</h4>
+                  <div class="card mb-4 rounded-3 shadow-sm text-center">
+                    <div class="card-header py-3 text-bg-primary">
+                      <h4 class="my-0 fw-normal">Básico</h4>
                     </div>
                     <div class="card-body text-dark">
-                      <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">R$0<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
+                        <li>1 Residência</li>
+                        <li>1 Alerta</li>
+                        <li>Acompanhamento de Consumo</li>
+                        <li>Acompanhamento de Tarifas</li>
+                      
                       </ul>
                       <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Sign up for free</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Free</button>
                     </div>
                   </div>
                 </div>
@@ -403,7 +438,7 @@
                       <h4 class="my-0 fw-normal">Pro</h4>
                     </div>
                     <div class="card-body text-dark ">
-                      <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">R$15<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
                         <li>20 users included</li>  
                         <li>10 GB of storage</li>
@@ -411,6 +446,12 @@
                         <li>Help center access</li>
                       </ul>
                       <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Get started</button>
+                        <li>3 Residências</li>
+                        <li>3 Alertas</li>
+                        <li>Acompanhamento de Consumo</li>
+                        <li>Acompanhamento de Tarifas</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Pro</button>
                     </div>
                   </div>
                 </div>
@@ -420,14 +461,17 @@
                       <h4 class="my-0 fw-normal">Premium</h4>
                     </div>
                     <div class="card-body text-dark">
-                      <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                      <h1 class="card-title pricing-card-title">$30<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                        <li>Recursos Ilimitados</li>
+                        <li>        +          </li>
+                        <li>Relatorios menssais</li>
+                        <li>Assistência personalizada</li>
+
+                        
                       </ul>
                       <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Contact us</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Premium </button>
                     </div>
                   </div>
                 </div>
@@ -451,7 +495,7 @@
                       <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                     </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Alertas</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -460,7 +504,7 @@
                     <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Residências</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -470,7 +514,7 @@
                     <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Consumo</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -479,7 +523,7 @@
                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Gráficos</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -489,7 +533,7 @@
                     <path d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293 2.354.646zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118l.137-.274z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Relatorios</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -500,7 +544,7 @@
                     <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Tarifa em tempo real</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -509,7 +553,7 @@
                     <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Consumo em tempo real</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
@@ -518,7 +562,7 @@
                     <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
                   </svg>
                   <div>
-                    <h3 class="fw-bold mb-0 fs-4">Featured title</h3>
+                    <h3 class="fw-bold mb-0 fs-4">Vazamentos</h3>
                     <p>Paragraph of text beneath the heading to explain the heading.</p>
                   </div>
                 </div>
