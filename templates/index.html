@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +10,8 @@
     <link rel="shortcut icon" href="/static/img/ws-logo1.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/features/">
-  
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-        <style>
+    <style>
           .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -65,41 +62,21 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
           }
-          body{
+          nav{
             background-color: #2a2b3d;
           }
-        </style>
-    
-        
-        <!-- Custom styles for this template -->
-        <link href="features.css" rel="stylesheet">
-
+          body{
+            background-color: #111827;
+          }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="features.css" rel="stylesheet">
 </head>
     <body class="ext-center text-light">
-        <!-- <header class="site-header sticky-top py-1 bg-dark">
-          <nav class="container d-flex flex-column flex-md-row justify-content-between ">
-            <a class="py-2" href="#" aria-label="Product">
-              <h6><img src="/static/img/agua.png" alt="Logo" width="30rem" height="30rem">Water System</h6>
-            </a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Produtos</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Suporte</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Preços</a>
-            {% if user.is_authenticated %} Se o usuário não estiver autenticado, o link para Perfil no template index não deverá aparecer. Para isso, basta acessar o atributo is_authenticated do usuário autenticado:-->
-            <!-- <a class="py-2 d-none d-md-inline-block" href="{% url 'painel' %}">Painel</a>
-            {% endif %}
-            {% if not user.is_authenticated %} Se o usuario não estiver autenticado, exiba:
-            <a class="py-2 d-none d-md-inline-block" href="{% url 'login' %}">Login</a>
-            <a class="py-2 d-none d-md-inline-block" href="{% url 'registro' %}">Cadastre-se</a>
-            {% endif %}
-          </nav>
-        </header> -->
-        
-        <!-- Header 2 -->
-        <header>
+        <!-- <header>
           <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WATER SYSTEM</font></font></a>
+              <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/static/img/ws-logo1.png" alt="logo" width="40px" height="40px"> WATER SYSTEM</font></font></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alternar de navegação">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -114,27 +91,42 @@
                   </li>
                   {% endif %}
                 </ul>
-
               </div>
             </div>
           </nav>
-        </header>
-        <main>
-
-         
-
-
-
-
-
-
-
-
-
-
-   
-          
-              
+        </header> -->
+        <!-- Novo header -->
+        <div class="container">
+          <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dar">
+              <div class="container-fluid">
+            <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/static/img/ws-logo1.png" alt="logo" width="40px" height="40px"> WATER SYSTEM</font></font>
+            </a>
+      
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+              <li class="nav-item"><a href="#a1" class="nav-link text-white">Soluções</a></li>
+              <li class="nav-item"><a href="#a2" class="nav-link text-white">Saiba mais</a></li>
+              <li class="nav-item"><a href="#a3" class="nav-link text-white">Gráficos</a></li>
+              <li class="nav-item"><a href="#a4" class="nav-link text-white">Planos</a></li>
+              <li class="nav-item"><a href="#a5" class="nav-link text-white">Funcionalidades</a></li>
+            </ul>
+            <div class="col-md-3 text-end">
+              {% if user.is_authenticated %}
+              <button type="button" class="btn btn-outline-light me-2">
+                <a class="nav-link active" aria-current="page" href="{% url 'painel' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Painel</font></font></a>
+              </button>
+              {% endif %}
+              <button type="button" class="btn btn-outline-light me-2">
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></a>
+              </button>
+            </div>
+          </div>
+          </nav>
+          </header>
+        </div>
+        <!-- Fim do novo header -->
+        <main>   
           <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="bootstrap" viewBox="0 0 118 94">
               <title>Bootstrap</title>
@@ -193,55 +185,17 @@
               <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
             </symbol>
           </svg>
+          </main>
+
           <main>
-
             <img src="../static/img/capa.png" width="1500" height="750" alt="">
-
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <h1 class="visually-hidden">Features examples</h1>
-          
+            <div id="a1" class="b-example-divider"></div>
             <div class="container px-4 py-5" id="featured-3">
-              <h2 class="pb-2 border-bottom text-center">Columns with icons</h2>
+              <h2 class="pb-2 border-bottom text-center">Soluções</h2>
               <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="feature col">
                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-warning bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
-                  </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
-                </div>
-                <div class="feature col">
-                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-warning bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
-                  </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
-                </div>
-                <div class="feature col">
-                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-warning bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
-                  </div>
-                  <h3 class="fs-2">Featured title</h3>
-                  <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-                  </a>
-              <h2 class="pb-2 border-bottom">Soluções</h2>
-              <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-                <div class="feature col">
-                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
                       <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
@@ -251,36 +205,45 @@
                   </div>
                   <h3 class="fs-2">Economia</h3>
                   <p>WaterSystem, é um sistema que vai auxilar no acompanhamento das suas tarifas de água, com soluções que permitem o acompanhamento e redução de gastos.</p>
-
+                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
                 </div>
                 <div class="feature col">
-                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-warning bg-gradient fs-2 mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
                       <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
                     </svg>
                   </div>
                   <h3 class="fs-2">Meio Ambiente</h3>
                   <p>Além do foco no usuário, nosso sistema foi desenvolvido com o intuito de cuidar do meio ambiente, através da economia de água.</p>
-                   <h5>Seja consciente, seja sustentável, seja WaterSystem</h5>
-         
+                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
                 </div>
                 <div class="feature col">
-                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                  <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-warning bg-gradient fs-2 mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-ubuntu" viewBox="0 0 16 16">
                       <path d="M2.273 9.53a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.547Zm9.467-4.984a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546ZM7.4 13.108a5.535 5.535 0 0 1-3.775-2.88 3.273 3.273 0 0 1-1.944.24 7.4 7.4 0 0 0 5.328 4.465c.53.113 1.072.169 1.614.166a3.253 3.253 0 0 1-.666-1.9 5.639 5.639 0 0 1-.557-.091Zm3.828 2.285a2.273 2.273 0 1 0 0-4.546 2.273 2.273 0 0 0 0 4.546Zm3.163-3.108a7.436 7.436 0 0 0 .373-8.726 3.276 3.276 0 0 1-1.278 1.498 5.573 5.573 0 0 1-.183 5.535 3.26 3.26 0 0 1 1.088 1.693ZM2.098 3.998a3.28 3.28 0 0 1 1.897.486 5.544 5.544 0 0 1 4.464-2.388c.037-.67.277-1.313.69-1.843a7.472 7.472 0 0 0-7.051 3.745Z"/>
                     </svg>
                   </div>
                   <h3 class="fs-2">Performasse e praticidade</h3>
-                  <p>Focando no usuário, nosso painel é altamente didático com recursos de fácil acessibilidade, além de contar com ferramentas que vão alerta o usuário sobre gastos acessivos, possíveis vazamentos, alertas de consumo e muito mais. </p>
+                  <p>Focando no usuário, nosso painel é altamente didático com recursos de fácil acessibilidade, além de contar com ferramentas que vão alerta o usuário sobre gastos acessivos, possíveis vazamentos, alertas de consumo e muito mais.</p>
+                  <a href="#" class="icon-link d-inline-flex align-items-center text-white">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
                 </div>
               </div>
+              <h2 class="pb-2 border-bottom text-center">Seja consciente, seja sustentável, seja <br> <img src="/static/img/ws-logo1.png" alt="" width="40" height="40"> Water System <img src="/static/img/ws-logo1.png" alt="" width="40" height="40"></h2>
             </div>
           
-            <div class="b-example-divider"></div>
+            <div id="a2" class="b-example-divider"></div>
           
             <div class="container px-4 py-5" id="hanging-icons">
-              <h2 class="pb-2 border-bottom text-center">Hanging icons</h2>
-              <h2 class="pb-2 border-bottom">Saiba mais</h2>
+              <h2 class="pb-2 border-bottom text-center">Saiba mais</h2>
               <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="col d-flex align-items-start">
                   <div class="icon-square text-bg-warning d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
@@ -329,16 +292,14 @@
               </div>
             </div>
           
-            <div class="b-example-divider"></div>
+            <div id="a3" class="b-example-divider"></div>
           
             <div class="container px-4 py-5" id="custom-cards">
               <h2 class="pb-2 border-bottom text-center">Nosso Painel</h2>
-          
               <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel_ex_1.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 1</h3>
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel versátil e didático.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
@@ -356,11 +317,9 @@
                     </div>
                   </div>
                 </div>
-          
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-2.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 2</h3>
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Gráficos em tempo real.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
@@ -378,11 +337,9 @@
                     </div>
                   </div>
                 </div>
-          
                 <div class="col">
                   <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/static/img/painel-demo-3.png');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Painel 3</h3>
                       <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Acompanhe suas residências de qualquer lugar.</h3>
                       <ul class="d-flex list-unstyled mt-auto">
                         <li class="me-auto">
@@ -400,35 +357,28 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-            <div class="b-example-divider"></div>
+
+            <div id="a4" class="b-example-divider"></div>
           
             <div class="container px-4 py-5" id="custom-cards">
               <h2 class="pb-2 border-bottom text-center">Nossos Planos</h2>
-          
               <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                <!-- Add -->
                 <div class="col">
                   <div class="card mb-4 rounded-3 shadow-sm text-center border-warning">
                     <div class="card-header py-3 text-bg-warning border-warning">
                       <h4 class="my-0 fw-normal">Basic</h4>
-                  <div class="card mb-4 rounded-3 shadow-sm text-center">
-                    <div class="card-header py-3 text-bg-primary">
-                      <h4 class="my-0 fw-normal">Básico</h4>
                     </div>
-                    <div class="card-body text-dark">
+                    <div class="card-body text-light bg-dark">
                       <h1 class="card-title pricing-card-title">R$0<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
                         <li>1 Residência</li>
                         <li>1 Alerta</li>
                         <li>Acompanhamento de Consumo</li>
                         <li>Acompanhamento de Tarifas</li>
-                      
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Sign up for free</button>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Free</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-light">Aderir Basic</button>
                     </div>
                   </div>
                 </div>
@@ -437,21 +387,15 @@
                     <div class="card-header py-3 text-bg-warning border-warning">
                       <h4 class="my-0 fw-normal">Pro</h4>
                     </div>
-                    <div class="card-body text-dark ">
+                    <div class="card-body text-light bg-dark">
                       <h1 class="card-title pricing-card-title">R$15<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                        <li>20 users included</li>  
-                        <li>10 GB of storage</li>
-                        <li>Priority email support</li>
-                        <li>Help center access</li>
-                      </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Get started</button>
                         <li>3 Residências</li>
                         <li>3 Alertas</li>
                         <li>Acompanhamento de Consumo</li>
                         <li>Acompanhamento de Tarifas</li>
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Pro</button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-light">Aderir Pro</button>
                     </div>
                   </div>
                 </div>
@@ -460,18 +404,15 @@
                     <div class="card-header py-3 text-bg-warning border-warning">
                       <h4 class="my-0 fw-normal">Premium</h4>
                     </div>
-                    <div class="card-body text-dark">
+                    <div class="card-body text-light bg-dark">
                       <h1 class="card-title pricing-card-title">$30<small class="text-muted fw-light">/mês</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
                         <li>Recursos Ilimitados</li>
                         <li>        +          </li>
                         <li>Relatorios menssais</li>
                         <li>Assistência personalizada</li>
-
-                        
                       </ul>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-dark">Contact us</button>
-                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Aderir Premium </button>
+                      <button type="button" class="w-100 btn btn-lg btn-outline-warning text-light">Aderir Premium</button>
                     </div>
                   </div>
                 </div>
@@ -481,13 +422,10 @@
 
   <main>
 
-
-
-            <div class="b-example-divider"></div>
+            <div id="a5" class="b-example-divider"></div>
           
             <div class="container px-4 py-5" id="icon-grid">
               <h2 class="pb-2 border-bottom text-center">Funcionalidades </h2>
-          
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                 <div class="col d-flex align-items-start">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi bi-exclamation-triangle text-muted flex-shrink-0 me-3" viewBox="0 0 16 16">
@@ -569,75 +507,17 @@
               </div>
             </div>
           
-            <div class="b-example-divider"></div>
-          
-           
               </div>
             </div>
           </main>
           
-          
-              <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-          
-              
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        <!-- FOOTER 2-->
         <footer class="container">
           <p class="float-end"><a class="text-white" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><img src="/static/img/angulo-para-cima.png" alt="" width="25px" height="25px"></font></font><br> TOP</a></p>
-          <p class="text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2017–2022 Company, Inc. · </font></font><a class="text-white" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Privacidade</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> · </font></font><a class="text-white" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Termos</font></font></a></p>
+          <p class="text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2022–2023 Company, Inc. Water System· </font></font><a class="text-white" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Privacidade</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> · </font></font><a class="text-white" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Termos</font></font></a></p>
         </footer>
         
-            <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        
-        <script>
-                var returnedSuggestion = ''
+    <script>
+    var returnedSuggestion = ''
                 let editor, doc, cursor, line, pos
                 document.addEventListener("keydown", (event) => {
                 setTimeout(()=>{
@@ -679,9 +559,13 @@
                     returnedSuggestion = event.data.payload.data
                     displayGrey(event.data.payload.data)
                 }
-                })
-            </script></body>
+                })   
+    </script>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
