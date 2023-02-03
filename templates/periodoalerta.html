@@ -33,6 +33,9 @@
         {
    color: aliceblue;
         }
+        table{
+          background-color: #2a2b3d;
+        }
      </style>
 </head>
 <body>
@@ -43,7 +46,7 @@
       </button>
     </a>
   </div>
-        <table class="table table-dark table-hover">
+        <table class="table table-dar text-white table-hove">
             <thead>
               <tr>
                 <th scope="col">Periodo do alerta</th>
@@ -57,8 +60,9 @@
               <tr>
                 <td>{{periodoalerta.periodo}}</td>
                 <td>{{periodoalerta.horas}}</td>
-                <td><a href="{% url 'editar_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/editar.png" alt="" width="40px" height="40px"></button></a></td>
-                <td><a href="{% url 'remover_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-dark"><img src="/static/img/remover.png" alt="" width="40px" height="40px"></button></a></td>
+                <td><a href="{% url 'editar_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-dark border-dark btn-outline-light"><img src="/static/img/editar.png" alt="" width="40px" height="40px"></button></a></td>
+                <td><a href="{% url 'remover_periodoalerta' periodoalerta.id %}"><button type="button" class="btn btn-dark border-dark btn-outline-light
+                  "><img src="/static/img/remover.png" alt="" width="40px" height="40px"></button></a></td>
               </tr>
             </tbody>
             {% empty %}
