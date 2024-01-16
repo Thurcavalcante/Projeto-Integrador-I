@@ -39,6 +39,8 @@ urlpatterns = [
     path('registro/', registro, name='registro'),
     path('dados/<str:cpf>/', dados, name='dados'), #roda dados, recebendo o parâmetro id do usuário.
 
+
+
     path('alerta/', listar_alerta, name='listar_alerta'),#Aletta
     path('alerta_cadastrar/', cadastrar_alerta, name='cadastrar_alerta'),
     path('alerta_editar/<int:id>/', editar_alerta, name='editar_alerta'),
